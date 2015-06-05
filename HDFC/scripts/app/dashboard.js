@@ -38,10 +38,11 @@ app.dashboard = (function(){
         
         var show = function()
         {
-            
+           
         };
         
-        var saveFormDetail = function(){
+        var saveFormDetail = function(e){
+                
              busi_Name=$("#business_name").val();
              busi_ContNO=$("#contact_no").val();
              busi_OffAdd=$("#office_address").val();
@@ -53,7 +54,7 @@ app.dashboard = (function(){
              busi_AccType=$("#type_a_c").val();
              busi_BankName=$("#bank_name").val();
              busi_Nature=$("#business_name").val();
-             busi_Desc=$("#business_name").val();
+             busi_Desc=$("#descripBusiness").val();
             
             
              cust_Name=$("#name").val();
@@ -71,9 +72,20 @@ app.dashboard = (function(){
              loan_Tenure=$("#tenure").val();
             
              var db = app.getDb();
-             db.transaction(insertFormData, app.errorCB, app.successCB);                                     
+             
+              db.transaction(insertFormData, app.errorCB, app.successCB);                               
+            
+            if(e.sender.element[0].attributes['data-id'].value==="1"){
+                 db.transaction(insertFormData, app.errorCB, app.successCB);                                    
+             }else{
+                 db.transaction(insertFormData, app.errorCB, goToNextPage);
+             }
         }
         
+        
+        function goToNextPage(){
+           app.mobileApp.navigate('#bankStmView');  
+        }
         
         function insertFormData(tx){
 

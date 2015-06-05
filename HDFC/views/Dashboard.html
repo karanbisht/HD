@@ -1,4 +1,5 @@
-<div data-role="view" id="dashboard" data-layout="dashboardlayout" data-model="app.dashboard">
+
+<div data-role="view" id="dashboard" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.show">
         <div class="cd-tabs">
             <nav>
                 <ul class="cd-tabs-navigation">
@@ -96,7 +97,7 @@
                                 </div>
                                 <div class="rwfil clearfix">
                                     <p>
-                                        <input type="text" class="IN1 ipsm3 clndr" name="Date of Incorp" id="date_incorp" placeholder="Date of Incorp" >
+                                        <!--<input type="text" class="IN1 ipsm3 clndr" name="Date of Incorp" id="date_incorp" placeholder="Date of Incorp" >-->
                                     </p>
                                     <p>
                                         <input type="text" class="IN1 ipsm4 noMgRt" name="Bank A/C No" id="bank_acnt" placeholder="Bank A/C No" >
@@ -106,51 +107,51 @@
                                     <p>
                                         <select original-title="Type of A/C" class="IN1 ipsm3" id="type_a_c" name="Type of A/C" required="">
                                             <option value="">Type of A/C</option>
-                                            <option value="">Saving</option>
-                                            <option value="">Current</option>
-                                            <option value="">HUF</option>
+                                            <option>Saving</option>
+                                            <option>Current</option>
+                                            <option>HUF</option>
                                         </select>
                                     </p>
                                     <p>
                                         <select original-title="Bank Name" class="IN1 ipsm3" id="bank_name" name="Bank Name" required="">
                                             <option value="">Bank Name</option>
-                                            <option value="allahbad">ALLAHABAD BANK</option>
-                                            <option value="andhra">ANDHRA BANK</option>
-                                            <option value="axis">AXIS BANK</option>
-                                            <option value="baroda">BANK OF BARODA</option>
-                                            <option value="bkIndia">BANK OF INDIA</option>
-                                            <option value="bkmaharashtra">BANK OF MAHARASHTRA</option>
-                                            <option value="canrabank">CANARA BANK</option>
-                                            <option value="cityunion">CITY UNION BANK LTD</option>
-                                            <option value="corporate">CORPORATION BANK</option>
-                                            <option value="dena">DENA BANK</option>
-                                            <option value="hdfc">HDFC BANK LTD</option>
-                                            <option value="hsbc">HSBC</option>
-                                            <option value="icici">ICICI BANK LTD</option>
-                                            <option value="idbi">IDBI BANK LTD</option>
-                                            <option value="indian">INDIAN BANK</option>
-                                            <option value="indianoverseas">INDIAN OVERSEAS BANK</option>
-                                            <option value="ingvysya">ING VYSYA BANK LTD</option>
-                                            <option value="karnataka">KARNATAKA BANK LTD</option>
-                                            <option value="kotakmahindra">KOTAK MAHINDRA BANK</option>
-                                            <option value="punjabAndMaharashtra">PUNJAB AND MAHARASHTRA CO-OP BANK LTD.</option>
-                                            <option value="p&sb">PUNJAB AND SIND BANK</option>
-                                            <option value="pnb">PUNJAB NATIONAL BANK</option>
-                                            <option value="sbi">STATE BANK OF INDIA</option>
-                                            <option value="sundicate">SYNDICATE BANK</option>
-                                            <option value="uco">UCO BANK</option>
-                                            <option value="unionBankOfIndia">UNION BANK OF INDIA</option>
-                                            <option value="vijaya">VIJAYA BANK</option>
-                                            <option value="yesbank">YES BANK LTD</option>
+                                            <option>ALLAHABAD BANK</option>
+                                            <option>ANDHRA BANK</option>
+                                            <option>AXIS BANK</option>
+                                            <option>BANK OF BARODA</option>
+                                            <option>BANK OF INDIA</option>
+                                            <option>BANK OF MAHARASHTRA</option>
+                                            <option>CANARA BANK</option>
+                                            <option>CITY UNION BANK LTD</option>
+                                            <option>CORPORATION BANK</option>
+                                            <option>DENA BANK</option>
+                                            <option>HDFC BANK LTD</option>
+                                            <option>HSBC</option>
+                                            <option>ICICI BANK LTD</option>
+                                            <option>IDBI BANK LTD</option>
+                                            <option>INDIAN BANK</option>
+                                            <option>INDIAN OVERSEAS BANK</option>
+                                            <option>ING VYSYA BANK LTD</option>
+                                            <option>KARNATAKA BANK LTD</option>
+                                            <option>KOTAK MAHINDRA BANK</option>
+                                            <option>PUNJAB AND MAHARASHTRA CO-OP BANK LTD.</option>
+                                            <option>PUNJAB AND SIND BANK</option>
+                                            <option>PUNJAB NATIONAL BANK</option>
+                                            <option>STATE BANK OF INDIA</option>
+                                            <option>SYNDICATE BANK</option>
+                                            <option>UCO BANK</option>
+                                            <option>UNION BANK OF INDIA</option>
+                                            <option>VIJAYA BANK</option>
+                                            <option>YES BANK LTD</option>
                                         </select>
                                     </p>
                                     <p>
                                         <select original-title="Nature of Business" class="IN1 ipsm3 noMgRt" id="nature_business" name="Nature of Business" required="">
                                             <option value="">Nature of Business</option>
-                                            <option value="">Manufacturing</option>
-                                            <option value="">Servicing</option>
-                                            <option value="">Trading</option>
-                                            <option value="">Retail</option>
+                                            <option >Manufacturing</option>
+                                            <option >Servicing</option>
+                                            <option >Trading</option>
+                                            <option >Retail</option>
                                         </select>
                                     </p>
                                 </div>
@@ -387,10 +388,12 @@
                                     <a href="#" class="gryBt">Back</a>
                                 </p>
                                 <p>
-                                    <input type="button" class="blueBt" name="save" value="Save">
+                                    <!--<input type="button" class="blueBt" name="save" value="Save" data-role="button" data-bind="click:saveFormDetail(1)">-->
+                                    <a data-role="button" class="blueBt" data-click="app.dashboard.saveFormDetail" data-id="1">Save</a>
                                 </p>
                                 <p>
-                                    <input type="button" class="redBt" name="save continue" value="Save & continue">
+                                    <!--<input type="button" class="redBt" name="save continue" value="Save & continue" data-bind="click:saveFormDetail(2)">-->
+                                     <a data-role="button" class="redBt" data-click="app.dashboard.saveFormDetail" data-id="2" >Save & continue</a>
                                 </p>
                             </div>
                         </form>
@@ -466,7 +469,7 @@
                         <input type="button" name="submit" id="submit" value="Submit">
                     </div>
                     <div class="rw">
-                        <a href="#" class="skip">Skip this step</a>
+                        <a href="#attachDocView" class="skip">Skip this step</a>
                     </div>
                 </form>
             </article>

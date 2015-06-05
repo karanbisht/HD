@@ -4,6 +4,10 @@ app.homepage = (function(){
     
     var homepageViewModel = (function(){
         
+        var show = function(){
+            localStorage.setItem("loginStatus", 1);    
+        };
+        
         var contToFillBtn = function()
         {
             sessionStorage.setItem("SourceName",$('#sourceName').val());
@@ -12,7 +16,8 @@ app.homepage = (function(){
         };
         
         return{
-            contToFillBtn:contToFillBtn
+            contToFillBtn:contToFillBtn,
+            show:show
         };
     }());
     return homepageViewModel;
