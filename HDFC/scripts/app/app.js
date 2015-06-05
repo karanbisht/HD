@@ -30,12 +30,14 @@ var app = (function (win) {
 
 
     // Handle device back button tap
-    var onBackKeyDown = function(e) {
-        e.preventDefault();
+    var onBackKeyDown = function(e) {        
         if (app.mobileApp.view()['element']['0']['id']==='welcomeToHDFC') {
             navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
-                navigator.app.exitApp();         
+                navigator.app.exitApp();   
+                e.preventDefault();
             }, 'Exit', ['OK', 'Cancel']);       
+        }else if (app.mobileApp.view()['element']['0']['id']==='dashboard') {
+            app.mobileApp.navigate("index.html");   
         }else if (app.mobileApp.view()['element']['0']['id']==='bankStmView') {
             app.mobileApp.navigate("#dashboard");  
         }else if (app.mobileApp.view()['element']['0']['id']==='attachDocView') {
@@ -46,6 +48,7 @@ var app = (function (win) {
     var onDeviceReady = function() {
         document.addEventListener('backbutton', onBackKeyDown, false);
         navigator.splashscreen.hide();
+        
         var db = getDb();
         db.transaction(createDB, app.errorCB, app.successCB);
     };
@@ -77,24 +80,24 @@ var app = (function (win) {
     // Initialize KendoUI mobile application
     var mobileApp;
     var loginStatusCheck = localStorage.getItem("loginStatus");  
-    if(loginStatusCheck==='1'){
+    if(loginStatusCheck==='1' || loginStatusCheck===null){
          mobileApp = new kendo.mobile.Application(document.body, {
                                                      transition: 'fade',
-                                                     initial: "index.html",
+                                                     initial: "#welcomeToHDFC",
                                                      statusBarStyle: statusBarStyle,
                                                      skin: 'flat'
                                                  });
     }else if(loginStatusCheck==='2'){
          mobileApp = new kendo.mobile.Application(document.body, {
                                                      transition: 'fade',
-                                                     initial: "views/Dashboard.html",
+                                                     initial: "#dashboard",
                                                      statusBarStyle: statusBarStyle,
                                                      skin: 'flat'
                                                  });
     }
     var errorCB = function(error){
         console.log('Error with DB');
-        console.log(error);
+        console.log(JSON.stringify(error));
     }
     
     var successCB = function(){

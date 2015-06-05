@@ -38,7 +38,14 @@ app.dashboard = (function(){
         
         var show = function()
         {
-           
+                // create DateTimePicker from input HTML element
+                $("#datetimepicker").kendoDatePicker({
+                    value:new Date()
+                });
+            
+                $("#date_birth").kendoDatePicker({
+                    value:new Date()
+                });
         };
         
         var saveFormDetail = function(e){
