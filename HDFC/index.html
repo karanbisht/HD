@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="scripts/app/app.js"></script>
+        <script type="text/javascript" src="scripts/app/default.js"></script>
+        <link rel="stylesheet" href="styles/css/style.css">
+        <link rel="stylesheet" href="styles/css/fonts.css">
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
+        <!--<link href="styles/main.css" rel="stylesheet">-->
+    </head>
+    <body id="hdfcApp">
+        <div data-role="layout" data-id="default">
+
+        </div>
+
+        <div data-role="view" id="welcomeToHDFC" data-layout="default" class="welcome-scrn form-view" data-model="app.homepage">
+            <div data-role="header"></div>
+            <div id="wrapper">
+
+                <div class="screenOne">
+                    <div class="logo">
+                        <img src="styles/images/logo.jpg"  alt="HDFC">
+                    </div>
+                    <div class="welcmText">
+                        <h1>
+                            Welcome to <span>HDFC Small Business loan</span>
+                        </h1>
+                    </div>
+                    <div class="formBox">
+                        <div class="rw">
+                            <input type="text" value=""  placeholder='Source name' id="sourceName">
+                        </div>
+                        <div class="rw slect">
+                            <div class='selectBox'>
+                                <span class='selected' id="selectopt"></span>
+                                <span class='selectArrow'> <img src="styles/images/arrow.png" ></span>
+                                <div class="selectOptions" >
+                                    <span class="selectOption" value="Option 1">Constitution Type</span>
+                                    <span class="selectOption" value="Option 2">Sole Proprietorship</span>
+                                    <span class="selectOption" value="Option 3">Partnership Firm</span>
+                                    <span class="selectOption" value="Option 4">Pvt. Ltd</span>
+                                    <span class="selectOption" value="Option 5">Public Ltd</span>
+                                    <span class="selectOption" value="Option 6">Co-op.Society</span>
+                                    <span class="selectOption" value="Option 6">HUF</span>
+                                    <span class="selectOption" value="Option 6">Others</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rw">
+                            <input type="button" value="continue to fill" data-bind="click:contToFillBtn">
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img src="styles/images/screen-1-img.png" alt="img">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div data-role="layout" data-id="dashboardlayout">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <div class="logo"><img src="styles/images/logo.jpg" width="350" height="59" alt="img"></div>
+                    <h1>HDFC Small Business loan</h1>
+                </div>
+            </div>
+        </div>
+
+        <!--External Script Place Here-->
+        <script src="scripts/app/homepage.js"></script>
+        <script src="scripts/app/dashboard.js"></script>
+    </body>
+</html>

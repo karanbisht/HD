@@ -1,0 +1,186 @@
+.cf:before,
+.cf:after {
+  content: '';
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.km-flat {
+  font-size: .95em;
+}
+
+.km-listinset,
+.km-listgroupinset {
+  margin: 1em 2em;
+}
+
+#hdfcApp .activities-view .km-listview,
+#hdfcApp .add-activity-view .km-listview,
+#hdfcApp .add-comment-view .km-listview {
+  margin: 1em;
+}
+
+.km-flat .km-rowinsert,
+.km-flat .km-state-active,
+.km-flat .km-scroller-pull,
+.km-flat .k-slider-selection,
+.km-flat .km-touch-scrollbar,
+.km-flat .km-pages .km-current-page,
+.km-flat .k-slider .k-draghandle,
+.km-flat .k-slider .k-draghandle:hover,
+.km-flat .km-tabstrip .km-state-active,
+.km-flat .km-scroller-refresh.km-load-more,
+.km-flat .km-popup .k-state-hover,
+.km-flat .km-popup .k-state-focused,
+.km-flat .km-popup .k-state-selected,
+.km-flat .km-actionsheet > li > a:active,
+.km-flat .km-actionsheet > li > a:hover,
+.km-flat li.km-state-active .km-listview-link,
+.km-flat li.km-state-active .km-listview-label,
+.km-flat .km-listview-label input[type=radio]:checked,
+.km-flat .km-listview-label input[type=checkbox]:checked {
+  background: #4d4d4d;
+}
+
+.km-flat .km-loader {
+  background-color: rgba(0, 0, 0, .75);
+}
+
+.km-flat .km-loader::before {
+  background: none;
+}
+
+#hdfcApp.km-flat,
+#hdfcApp.km-flat .km-navbar,
+#hdfcApp.km-flat .km-content,
+input[type='date'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='time'],
+input[type='week'] {
+  font-family: 'Roboto', sans-serif;
+}
+
+#hdfcApp.km-flat,
+#hdfcApp.km-flat .km-navbar,
+#hdfcApp.km-flat .km-content {
+  border: 0 none;
+  color: #4d4d4d;
+  background-color: #fff;
+}
+
+#hdfcApp.km-flat .km-navbar {
+  background-color: #fff;
+}
+
+#hdfcApp.km-flat .km-content {
+  color: #4d4d4d;
+}
+
+#hdfcApp .hide-text {
+  text-indent: -999px;
+  overflow: hidden;
+}
+
+.disabled {
+  position: relative;
+  display: block;
+}
+
+.disabled:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  left: -1px;
+  z-index: 1;
+}
+
+/* Forms */
+
+::-webkit-input-placeholder {
+  color: #4d4d4d;
+}
+
+:-moz-placeholder {
+  color: #4d4d4d;
+}
+
+::-moz-placeholder {
+  color: #4d4d4d;
+}
+
+:-ms-input-placeholder {
+  color: #4d4d4d;
+}
+
+#hdfcApp.km-flat form .km-list > li,
+#hdfcApp .btn {
+  border-radius: 0;
+}
+
+#hdfcApp.km-flat form .km-list > li {
+  margin: 0 0 1em;
+  padding: .4em 0;
+  border-width: 0 0 1px;
+  border-color: #c9c9c9;
+  background-color: #fff;
+}
+
+#hdfcApp.km-flat .km-list input[type='text']:not(.k-input),
+#hdfcApp.km-flat .km-list input[type='password'],
+#hdfcApp.km-flat .km-list input[type='email'],
+#hdfcApp.km-flat .km-list input[type='date'],
+#hdfcApp.km-flat textarea,
+#hdfcApp.km-flat select {
+  position: static;
+  width: 100%;
+  height: 30px;
+  font-size: 1rem;
+}
+
+#hdfcApp.km-flat.km-on-wp .km-list input[type='text']:not(.k-input),
+#hdfcApp.km-flat.km-on-wp .km-list input[type='password'],
+#hdfcApp.km-flat.km-on-wp .km-list input[type='email'],
+#hdfcApp.km-flat.km-on-wp .km-list input[type='date'],
+#hdfcApp.km-flat.km-on-wp textarea,
+#hdfcApp.km-flat.km-on-wp select {
+  padding: 0 .4em;
+}
+
+#hdfcApp.km-flat select {
+  padding: .4em .2em;
+}
+
+#hdfcApp.km-flat.km-on-wp select {
+  padding: 0 .2em;
+}
+
+
+/* App Header */
+
+#hdfcApp.km-flat.km-on-ios.km-black-translucent-status-bar .km-header {
+  min-height: 20px;
+  background-color: #4d4d4d;
+}
+
+#hdfcApp.km-flat.km-on-ios.km-black-translucent-status-bar .km-header .km-navbar {
+  margin-top: 20px;
+  padding-top: .5em;
+}
+
+#hdfcApp.km-flat .km-header .km-navbar {
+  min-height: 3.15em;
+}
+
+#hdfcApp.km-flat .km-header .km-navbar {
+  border-bottom: 1px solid #c9c9c9;
+}
+
+#hdfcApp.km-flat .km-header .km-view-title {
+  font-size: 1.3em;
+}

@@ -1,0 +1,519 @@
+<div data-role="view" id="dashboard" data-layout="dashboardlayout" data-model="app.dashboard">
+        <div class="cd-tabs">
+            <nav>
+                <ul class="cd-tabs-navigation">
+                    <li>
+                        <a data-content="Application form" class="selected" href="#dashboard">Application form </a>
+                    </li>
+                    <li>
+                        <a data-content="Bank statement" href="#bankStmView">Bank statement</a>
+                    </li>
+                    <li>
+                        <a data-content="Attach Document" href="#attachDocView">Attach Document</a>
+                    </li>
+                </ul> <!-- cd-tabs-navigation -->
+            </nav>
+        </div>     
+        <div class="cd-tabs-content">
+            <div data-content="Application form" class="selected contBox">
+                <article id="screenTwo">
+                    <div class="warps clearfix">
+                        <form id="applicationForm">
+                            <div class="rws clearfix">
+                                <h2>Business Details</h2>
+                                <div class="rwfil clearfix">
+                                    <p>
+                                        <input type="text" class="IN1 ipsm3" name="Business Name" id="business_name" placeholder="Business Name" >
+                                    </p>
+                                    <p>
+                                        <input type="number" class="IN1 ipsm3" name="Contact No" id="contact_no" placeholder="Contact No" >
+                                    </p>
+                                    <p>
+                                        <input type="text" class="IN1 ipsm3 noMgRt" name="Office Address" id="office_address" placeholder="Office Address" >
+                                    </p>
+                                </div>
+                                <div class="rwfil clearfix">
+                                    <p>
+                                        <select original-title="Select State" class="IN1 ipsm3" id="state" name="state" required="">
+                                            <option value="">State</option>
+                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                            <option value="Assam">Assam</option><option value="Bihar">Bihar</option>
+                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                            <option value="Delhi">Delhi</option>
+                                            <option value="Goa">Goa</option>
+                                            <option value="Gujarat">Gujarat</option>
+                                            <option value="Haryana">Haryana</option>
+                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                            <option value="Jharkhand">Jharkhand</option>
+                                            <option value="Karnataka">Karnataka</option>
+                                            <option value="Kerala">Kerala</option>
+                                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                            <option value="Maharashtra">Maharashtra</option>
+                                            <option value="Manipur">Manipur</option>
+                                            <option value="Meghalaya">Meghalaya</option>
+                                            <option value="Mizoram">Mizoram</option>
+                                            <option value="Nagaland">Nagaland</option>
+                                            <option value="Odisha">Odisha</option>
+                                            <option value="Punjab">Punjab</option>
+                                            <option value="Rajasthan">Rajasthan</option>
+                                            <option value="Sikkim">Sikkim</option>
+                                            <option value="Tamil Nadu">Tamil Nadu</option>
+                                            <option value="Telangana">Telangana</option>
+                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                            <option value="Uttarakhand">Uttarakhand</option>
+                                            <option value="Tripura">Tripura</option>
+                                            <option value="West Bengal">West Bengal</option>
+                                            <option value="Andaman and Nicobar">Andaman and Nicobar</option>
+                                            <option value="Chandigarh">Chandigarh</option>
+                                            <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                            <option value="Daman and Diu">Daman and Diu</option>
+                                            <option value="Lakshadweep">Lakshadweep</option>
+                                            <option value="Puducherry">Puducherry</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <select original-title="City" class="IN1 ipsm3" id="city" name="city" required="">
+                                            <option value="">City</option>
+                                            <option>Ahmedabad </option>
+                                            <option>Bangalore </option>
+                                            <option>Chennai </option>
+                                            <option>New Delhi</option>
+                                            <option>Hyderabad </option>
+                                            <option>Jaipur </option>
+                                            <option>Kochi </option>
+                                            <option>Kolkata </option>
+                                            <option>Mumbai </option>
+                                            <option>Noida</option>
+                                            <option>Pune </option>
+                                            <option>Surat </option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <input type="text" class="IN1 ipsm3 noMgRt" name="PAN No" id="pan_no" placeholder="PAN No" >
+                                    </p>
+                                </div>
+                                <div class="rwfil clearfix">
+                                    <p>
+                                        <input type="text" class="IN1 ipsm3 clndr" name="Date of Incorp" id="date_incorp" placeholder="Date of Incorp" >
+                                    </p>
+                                    <p>
+                                        <input type="text" class="IN1 ipsm4 noMgRt" name="Bank A/C No" id="bank_acnt" placeholder="Bank A/C No" >
+                                    </p>
+                                </div>
+                                <div class="rwfil clearfix">
+                                    <p>
+                                        <select original-title="Type of A/C" class="IN1 ipsm3" id="type_a_c" name="Type of A/C" required="">
+                                            <option value="">Type of A/C</option>
+                                            <option value="">Saving</option>
+                                            <option value="">Current</option>
+                                            <option value="">HUF</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <select original-title="Bank Name" class="IN1 ipsm3" id="bank_name" name="Bank Name" required="">
+                                            <option value="">Bank Name</option>
+                                            <option value="allahbad">ALLAHABAD BANK</option>
+                                            <option value="andhra">ANDHRA BANK</option>
+                                            <option value="axis">AXIS BANK</option>
+                                            <option value="baroda">BANK OF BARODA</option>
+                                            <option value="bkIndia">BANK OF INDIA</option>
+                                            <option value="bkmaharashtra">BANK OF MAHARASHTRA</option>
+                                            <option value="canrabank">CANARA BANK</option>
+                                            <option value="cityunion">CITY UNION BANK LTD</option>
+                                            <option value="corporate">CORPORATION BANK</option>
+                                            <option value="dena">DENA BANK</option>
+                                            <option value="hdfc">HDFC BANK LTD</option>
+                                            <option value="hsbc">HSBC</option>
+                                            <option value="icici">ICICI BANK LTD</option>
+                                            <option value="idbi">IDBI BANK LTD</option>
+                                            <option value="indian">INDIAN BANK</option>
+                                            <option value="indianoverseas">INDIAN OVERSEAS BANK</option>
+                                            <option value="ingvysya">ING VYSYA BANK LTD</option>
+                                            <option value="karnataka">KARNATAKA BANK LTD</option>
+                                            <option value="kotakmahindra">KOTAK MAHINDRA BANK</option>
+                                            <option value="punjabAndMaharashtra">PUNJAB AND MAHARASHTRA CO-OP BANK LTD.</option>
+                                            <option value="p&sb">PUNJAB AND SIND BANK</option>
+                                            <option value="pnb">PUNJAB NATIONAL BANK</option>
+                                            <option value="sbi">STATE BANK OF INDIA</option>
+                                            <option value="sundicate">SYNDICATE BANK</option>
+                                            <option value="uco">UCO BANK</option>
+                                            <option value="unionBankOfIndia">UNION BANK OF INDIA</option>
+                                            <option value="vijaya">VIJAYA BANK</option>
+                                            <option value="yesbank">YES BANK LTD</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <select original-title="Nature of Business" class="IN1 ipsm3 noMgRt" id="nature_business" name="Nature of Business" required="">
+                                            <option value="">Nature of Business</option>
+                                            <option value="">Manufacturing</option>
+                                            <option value="">Servicing</option>
+                                            <option value="">Trading</option>
+                                            <option value="">Retail</option>
+                                        </select>
+                                    </p>
+                                </div>
+                                <div class="rwfil blking clearfix">
+                                    <p>
+                                        <textarea required="" id="descripBusiness" placeholder="Description of Business" class="IN1 ipsm10 noMgRt" original-title="Description of Business"></textarea>
+                                    </p>
+                                </div>
+                                <h2>Co applicant Details</h2>
+                                <div class="rptBoxmain">
+                                    <div class="rptBox first">
+                                        <div class="rwfil clearfix">
+                                            <p>
+                                                <input type="text" class="IN1 ipsm3" name="Name" id="name" placeholder="Name" >
+                                            </p>
+                                            <p>
+                                                <input type="text" class="IN1 ipsm3" name="Office Address" id="office_address_cust" placeholder="Office Address" >
+                                            </p>
+                                            <p>
+                                                <input type="text" class="IN1 ipsm3 noMgRt" name="Mobile No" id="mobile_no" placeholder="Mobile No" >
+                                            </p>
+                                        </div>
+                                        <div class="rwfil clearfix">
+                                            <p>
+                                                <select original-title="Select State" class="IN1 ipsm3" id="state1" name="state" required="">
+                                                    <option value="">State</option>
+                                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                    <option value="Assam">Assam</option><option value="Bihar">Bihar</option>
+                                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                                    <option value="Delhi"s>Delhi</option>
+                                                    <option value="Goa">Goa</option>
+                                                    <option value="Gujarat">Gujarat</option>
+                                                    <option value="Haryana">Haryana</option>
+                                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                    <option value="Jharkhand">Jharkhand</option>
+                                                    <option value="Karnataka">Karnataka</option>
+                                                    <option value="Kerala">Kerala</option>
+                                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                    <option value="Maharashtra">Maharashtra</option>
+                                                    <option value="Manipur">Manipur</option>
+                                                    <option value="Meghalaya">Meghalaya</option>
+                                                    <option value="Mizoram">Mizoram</option>
+                                                    <option value="Nagaland">Nagaland</option>
+                                                    <option value="Odisha">Odisha</option>
+                                                    <option value="Punjab">Punjab</option>
+                                                    <option value="Rajasthan">Rajasthan</option>
+                                                    <option value="Sikkim">Sikkim</option>
+                                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                                    <option value="Telangana">Telangana</option>
+                                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                    <option value="Uttarakhand">Uttarakhand</option>
+                                                    <option value="Tripura">Tripura</option>
+                                                    <option value="West Bengal">West Bengal</option>
+                                                    <option value="Andaman and Nicobar">Andaman and Nicobar</option>
+                                                    <option value="Chandigarh">Chandigarh</option>
+                                                    <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                                    <option value="Daman and Diu">Daman and Diu</option>
+                                                    <option value="Lakshadweep">Lakshadweep</option>
+                                                    <option value="Puducherry">Puducherry</option>
+                                                </select>
+                                            </p>
+                                            <p>
+                                                <select original-title="City" class="IN1 ipsm3" id="city1" name="city" required="">
+                                                    <option value="">City</option>
+                                                    <option>Ahmedabad </option>
+                                                    <option>Bangalore </option>
+                                                    <option>Chennai </option>
+                                                    <option>New Delhi</option>
+                                                    <option>Hyderabad </option>
+                                                    <option>Jaipur </option>
+                                                    <option>Kochi </option>
+                                                    <option>Kolkata </option>
+                                                    <option>Mumbai </option>
+                                                    <option>Noida</option>
+                                                    <option>Pune </option>
+                                                    <option>Surat </option>
+                                                </select>
+                                            </p>
+                                            <p>
+                                                <input type="text" class="IN1 ipsm3 noMgRt" name="Email Id" id="email" placeholder="Email Id" >
+                                            </p>
+                                        </div>
+                                        <div class="rwfil blking clearfix">
+                                            <p>
+                                                <input type="text" class="IN1 ipsm3 clndr" name="Date of Birth" id="date_birth" placeholder="Date of Birth" >
+                                            </p>
+                                            <p>
+                                                <input type="text" class="IN1 ipsm3" name="PAN No" id="pan_no1" placeholder="PAN No" >
+                                            </p>
+                                            <p>
+                                                <input type="text" class="IN1 ipsm3 noMgRt" name="Designation" id="designation" placeholder="Designation" >
+                                            </p>
+                                        </div>
+                                        <div class="rwfil blking clearfix">
+                                            <p>
+                                                <select original-title="Owner Ship %" class="IN1 ipsm4" id="owner_ship" name="owner ship" required="">
+                                                    <option selected="selected" value="">Owner Ship %</option>
+                                                    <option value="100">100</option>
+                                                    <option value="99">99</option>
+                                                    <option value="98">98</option>
+                                                    <option value="97">97</option>
+                                                    <option value="96">96</option>
+                                                    <option value="95">95</option>
+                                                    <option value="94">94</option>
+                                                    <option value="93">93</option>
+                                                    <option value="92">92</option>
+                                                    <option value="91">91</option>
+                                                    <option value="90">90</option>
+                                                    <option value="89">89</option>
+                                                    <option value="88">88</option>
+                                                    <option value="87">87</option>
+                                                    <option value="86">86</option>
+                                                    <option value="85">85</option>
+                                                    <option value="84">84</option>
+                                                    <option value="83">83</option>
+                                                    <option value="82">82</option>
+                                                    <option value="81">81</option>
+                                                    <option value="80">80</option>
+                                                    <option value="79">79</option>
+                                                    <option value="78">78</option>
+                                                    <option value="77">77</option>
+                                                    <option value="76">76</option>
+                                                    <option value="75">75</option>
+                                                    <option value="74">74</option>
+                                                    <option value="73">73</option>
+                                                    <option value="72">72</option>
+                                                    <option value="71">71</option>
+                                                    <option value="70">70</option>
+                                                    <option value="69">69</option>
+                                                    <option value="68">68</option>
+                                                    <option value="67">67</option>
+                                                    <option value="66">66</option>
+                                                    <option value="65">65</option>
+                                                    <option value="64">64</option>
+                                                    <option value="63">63</option>
+                                                    <option value="62">62</option>
+                                                    <option value="61">61</option>
+                                                    <option value="60">60</option>
+                                                    <option value="59">59</option>
+                                                    <option value="58">58</option>
+                                                    <option value="57">57</option>
+                                                    <option value="56">56</option>
+                                                    <option value="55">55</option>
+                                                    <option value="54">54</option>
+                                                    <option value="53">53</option>
+                                                    <option value="52">52</option>
+                                                    <option value="51">51</option>
+                                                    <option value="50">50</option>
+                                                    <option value="49">49</option>
+                                                    <option value="48">48</option>
+                                                    <option value="47">47</option>
+                                                    <option value="46">46</option>
+                                                    <option value="45">45</option>
+                                                    <option value="44">44</option>
+                                                    <option value="43">43</option>
+                                                    <option value="42">42</option>
+                                                    <option value="41">41</option>
+                                                    <option value="40">40</option>
+                                                    <option value="39">39</option>
+                                                    <option value="38">38</option>
+                                                    <option value="37">37</option>
+                                                    <option value="36">36</option>
+                                                    <option value="35">35</option>
+                                                    <option value="34">34</option>
+                                                    <option value="33">33</option>
+                                                    <option value="32">32</option>
+                                                    <option value="31">31</option>
+                                                    <option value="30">30</option>
+                                                    <option value="29">29</option>
+                                                    <option value="28">28</option>
+                                                    <option value="27">27</option>
+                                                    <option value="26">26</option>
+                                                    <option value="25">25</option>
+                                                    <option value="24">24</option>
+                                                    <option value="23">23</option>
+                                                    <option value="22">22</option>
+                                                    <option value="21">21</option>
+                                                    <option value="20">20</option>
+                                                    <option value="19">19</option>
+                                                    <option value="18">18</option>
+                                                    <option value="17">17</option>
+                                                    <option value="16">16</option>
+                                                    <option value="15">15</option>
+                                                    <option value="14">14</option>
+                                                    <option value="13">13</option>
+                                                    <option value="12">12</option>
+                                                    <option value="11">11</option>
+                                                    <option value="10">10</option>
+                                                    <option value="9">9</option>
+                                                    <option value="8">8</option>
+                                                    <option value="7">7</option>
+                                                    <option value="6">6</option>
+                                                    <option value="5">5</option>
+                                                    <option value="4">4</option>
+                                                    <option value="3">3</option>
+                                                    <option value="2">2</option>
+                                                    <option value="1">1</option>
+                                                </select>
+                                            </p>
+                                            <p>
+                                                <a href="javascript:void(0)" id="primemore" class="addmore" >Add More</a>
+                                                <a class="remove" href="javascript:void(0)">Remove</a>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2>Loan Requirement</h2>
+                                <div class="rwfil clearfix">
+                                    <p>
+                                        <input type="text" class="IN1 ipsm3" name="Amount Req" id="amount_req" placeholder="Amount Req" >
+                                    </p>
+                                    <p>
+                                        <select original-title="Tenure" class="IN1 ipsm3" id="tenure" name="Tenure" required="">
+                                            <option value="">Tenure</option>
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                            <option value="">4</option>
+                                            <option value="">5</option>
+                                            <option value="">6</option>
+                                            <option value="">7</option>
+                                            <option value="">8</option>
+                                            <option value="">9</option>
+                                            <option value="">10</option>
+                                        </select>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="buttonSectn clearfix">
+                                <p>
+                                    <a href="#" class="gryBt">Back</a>
+                                </p>
+                                <p>
+                                    <input type="button" class="blueBt" name="save" value="Save">
+                                </p>
+                                <p>
+                                    <input type="button" class="redBt" name="save continue" value="Save & continue">
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+</div>
+
+<!--bank Statment View-->
+
+<div data-role="view" id="bankStmView" data-layout="dashboardlayout" data-model="app.dashboard">
+    <div class="cd-tabs">
+        <nav>
+            <ul class="cd-tabs-navigation">
+                <li>
+                    <a data-content="Application form" href="#dashboard">Application form </a>
+                </li>
+                <li>
+                    <a data-content="Bank statement" class="selected" href="#bankStmView">Bank statement</a>
+                </li>
+                <li>
+                    <a data-content="Attach Document" href="#attachDocView">Attach Document</a>
+                </li>
+            </ul> <!-- cd-tabs-navigation -->
+        </nav>
+    </div>     
+    <div data-content="Bank statement" class="selected contBox">
+        <div class="warps">
+            <article id="screenthree">
+                <h2>Bank statement</h2>
+                <form id="scrnthree">
+                    <div class="rw">
+                        <select original-title="Select Bank" class="IN1 ipsm3" id="select_bank2" name="select bank" required="">
+                            <option value="">Select Bank</option>
+                            <option value="allahbad">ALLAHABAD BANK</option>
+                            <option value="andhra">ANDHRA BANK</option>
+                            <option value="axis">AXIS BANK</option>
+                            <option value="baroda">BANK OF BARODA</option>
+                            <option value="bkIndia">BANK OF INDIA</option>
+                            <option value="bkmaharashtra">BANK OF MAHARASHTRA</option>
+                            <option value="canrabank">CANARA BANK</option>
+                            <option value="cityunion">CITY UNION BANK LTD</option>
+                            <option value="corporate">CORPORATION BANK</option>
+                            <option value="dena">DENA BANK</option>
+                            <option value="hdfc">HDFC BANK LTD</option>
+                            <option value="hsbc">HSBC</option>
+                            <option value="icici">ICICI BANK LTD</option>
+                            <option value="idbi">IDBI BANK LTD</option>
+                            <option value="indian">INDIAN BANK</option>
+                            <option value="indianoverseas">INDIAN OVERSEAS BANK</option>
+                            <option value="ingvysya">ING VYSYA BANK LTD</option>
+                            <option value="karnataka">KARNATAKA BANK LTD</option>
+                            <option value="kotakmahindra">KOTAK MAHINDRA BANK</option>
+                            <option value="punjabAndMaharashtra">PUNJAB AND MAHARASHTRA CO-OP BANK LTD.</option>
+                            <option value="p&sb">PUNJAB AND SIND BANK</option>
+                            <option value="pnb">PUNJAB NATIONAL BANK</option>
+                            <option value="sbi">STATE BANK OF INDIA</option>
+                            <option value="sundicate">SYNDICATE BANK</option>
+                            <option value="uco">UCO BANK</option>
+                            <option value="unionBankOfIndia">UNION BANK OF INDIA</option>
+                            <option value="vijaya">VIJAYA BANK</option>
+                            <option value="yesbank">YES BANK LTD</option>
+                        </select>
+                    </div>
+                    <div class="rw">
+                        <input type="text" class="IN1 ipsm3" name="Customer ID" id="customer" placeholder="Customer ID" >
+                    </div>
+                    <div class="rw">
+                        <input type="Password" class="IN1 ipsm3" name="Password" id="password" placeholder="Password" >
+                    </div>
+                    <div class="rw">
+                        <input type="button" name="submit" id="submit" value="Submit">
+                    </div>
+                    <div class="rw">
+                        <a href="#" class="skip">Skip this step</a>
+                    </div>
+                </form>
+            </article>
+            <div class="scrnThrbgBox">
+                <img src="styles/images/screen-3-bg.png" alt="img">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Attchment document View-->
+
+<div data-role="view" id="attachDocView" data-layout="dashboardlayout" data-model="app.dashboard">
+    <div class="cd-tabs">
+        <nav>
+            <ul class="cd-tabs-navigation">
+                <li>
+                    <a data-content="Application form"  href="#dashboard">Application form </a>
+                </li>
+                <li>
+                    <a data-content="Bank statement" href="#bankStmView">Bank statement</a>
+                </li>
+                <li>
+                    <a data-content="Attach Document" class="selected" href="#attachDocView">Attach Document</a>
+                </li>
+            </ul> <!-- cd-tabs-navigation -->
+        </nav>
+    </div>     
+    <div data-content="Attach Document" class="selected contBox">
+        <p>Gallery Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tenetur aut, cupiditate, libero eius rerum incidunt dolorem quo in officia.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ipsa vero, culpa doloremque voluptatum consectetur mollitia, atque expedita unde excepturi id, molestias maiores delectus quos molestiae. Ab iure provident adipisci eveniet quisquam ratione libero nam inventore error pariatur optio facilis assumenda sint atque cumque, omnis perspiciatis. Maxime minus quam voluptatum provident aliquam voluptatibus vel rerum. Soluta nulla tempora aspernatur maiores! Animi accusamus officiis neque exercitationem dolore ipsum maiores delectus asperiores reprehenderit pariatur placeat, quaerat sed illum optio qui enim odio temporibus, nulla nihil nemo quod dicta consectetur obcaecati vel. Perspiciatis animi corrupti quidem fugit deleniti, atque mollitia labore excepturi ut.</p>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery("body").on("click", ".addmore", function () {
+            jQuery(".removeRow").show();
+            jQuery(".rptBoxmain").append('<div class="rptBox second"><div class="rwfil clearfix"><p><input type="text" class="IN1 ipsm3" name="Name" id="name" placeholder="Name" ></p><p><input type="text" class="IN1 ipsm3" name="Office Address" id="office_address" placeholder="Office Address" ></p><p><input type="text" class="IN1 ipsm3 noMgRt" name="Mobile No" id="mobile_no" placeholder="Mobile No" ></p></div><div class="rwfil clearfix"><p><select original-title="Select State" class="IN1 ipsm3" id="state1" name="state" required=""><option value="">State</option><option value="">State</option></select></p><p><select original-title="City" class="IN1 ipsm3" id="city" name="city1" required=""><option value="">City</option><option value="">City</option></select></p><p><input type="text" class="IN1 ipsm3 noMgRt" name="Email Id" id="email" placeholder="Email Id" ></p></div><div class="rwfil blking clearfix"><p><input type="text" class="IN1 ipsm3 clndr" name="Date of Birth" id="date_birth" placeholder="Date of Birth" ></p><p><input type="text" class="IN1 ipsm3" name="PAN No" id="pan_no1" placeholder="PAN No" ></p><p><input type="text" class="IN1 ipsm3 noMgRt" name="Designation" id="designation" placeholder="Designation" ></p></div><div class="rwfil blking clearfix"><p><select original-title="Owner Ship %" class="IN1 ipsm4" id="owner_ship" name="owner ship" required=""><option value="">Owner Ship %</option><option value="">Owner Ship %</option></select></p><p><a href="javascript:void(0)" class="addmore" >Add More</a><a class="remove" href="javascript:void(0)">Remove</a></p></div></div>');
+        });
+
+        jQuery("body").on("click", ".remove", function () {
+            jQuery(this).parents(".rptBoxmain").find(".rptBox:last").remove();
+        }); 
+    });
+</script>
