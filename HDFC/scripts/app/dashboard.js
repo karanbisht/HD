@@ -154,15 +154,84 @@ app.dashboard = (function(){
                         + '" ,"'            
                         + 123456 + '")';
 
-
             app.insertQuery(tx, queryBusi);
             app.insertQuery(tx, queryCust);
             app.insertQuery(tx, queryloan);
         }
         
+        var numberDocUpload=0;
+        var attachshow = function(){
+            $("#attachUpdateDiv").show();
+            $("#attachUpdateMoreDiv").hide();
+            numberDocUpload=0;
+        }
+        
+        var clickToUploadDiv = function(){            
+           $("#screenfor").hide(); 
+           $("#Screenfive").show();            
+        }
+        
+        var takeAttachDocPhoto = function(){
+             navigator.camera.getPicture(attachDocSuccess, onFail, { 
+                                            quality: 50,
+                                            targetWidth: 300,
+                                            targetHeight: 300,
+                                            destinationType: navigator.camera.DestinationType.FILE_URI,
+                                            sourceType: navigator.camera.PictureSourceType.CAMERA,
+                                            correctOrientation: true
+                                        });
+        }
+        
+        var profileImagePath;                
+        function attachDocSuccess(imageURI) {
+            numberDocUpload++;            
+            var imgDocShow = document.getElementById('attachDoc'+numberDocUpload);
+            imgDocShow.src = imageURI;
+            profileImagePath = imageURI;               
+            //var db = app.getDb();
+            //db.transaction(updateProfilePic, app.errorCB, app.successCB);   
+        }
+        
+        function onFail(message) {
+            //console.log('Failed because: ' + message);
+            
+        }
+        
+        function updateProfilePic(tx) {       
+            var query = "UPDATE PROFILE_INFO SET profile_image='" + profileImagePath + "'";
+            app.updateQuery(tx, query);
+        }
+        
+        var saveAttachDoc = function(){          
+
+           $("#screenfor").show(); 
+           $("#Screenfive").hide();
+            
+           $("#attachUpdateDiv").hide();
+           $("#attachUpdateMoreDiv").show();
+
+        }
+        
+        var cancelAttachDoc = function(){        
+
+          while(numberDocUpload>=1){  
+            var imgDocShow = document.getElementById('attachDoc'+numberDocUpload);
+            imgDocShow.src = 'styles/images/pic.gif';      
+            numberDocUpload--;
+          }                   
+           
+           $("#screenfor").show(); 
+           $("#Screenfive").hide();                    
+        }
+        
         return{
             int:int,
             show:show,
+            clickToUploadDiv:clickToUploadDiv,
+            takeAttachDocPhoto:takeAttachDocPhoto,
+            attachshow:attachshow,
+            saveAttachDoc:saveAttachDoc,
+            cancelAttachDoc:cancelAttachDoc,
             saveFormDetail:saveFormDetail
             
         };

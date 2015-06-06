@@ -94,10 +94,10 @@
                                         <input type="text" class="IN1 ipsm3 noMgRt" name="PAN No" id="pan_no" placeholder="PAN No" >
                                     </p>
                                 </div>
-                                <div class="rwfil clearfix">
+                                <div class="rwfil clearfix" id="datecorp">
                                     <p>
                                         <!--<input type="text" class="IN1 ipsm3 clndr" name="Date of Incorp" id="date_incorp" placeholder="Date of Incorp" >-->
-                                        <input id="datetimepicker" class="k-input"/>
+                                        <input id="datetimepicker"/>
                                     </p>
                                     <p>
                                         <input type="text" class="IN1 ipsm4 noMgRt" name="Bank A/C No" id="bank_acnt" placeholder="Bank A/C No" >
@@ -354,13 +354,14 @@
                                                     <option value="1">1</option>
                                                 </select>
                                             </p>
-                                            <p>
-                                                <a href="javascript:void(0)" id="primemore" class="addmore" >Add More</a>
-                                                <a class="remove" href="javascript:void(0)">Remove</a>
-                                            </p>
+                                            
+                                            <p><a href="javascript:void(0)" id="mainAdd" class="addmore" >Add More</a></p>
 
                                         </div>
                                     </div>
+                                </div>
+                                <div class="rwfil blking sndAdRmv clearfix">
+                            	<p><a href="javascript:void(0)" class="addmore" >Add More</a><a class="remove" href="javascript:void(0)">Remove</a></p>
                                 </div>
                                 <h2>Loan Requirement</h2>
                                 <div class="rwfil clearfix">
@@ -488,7 +489,7 @@
 
 <!--Attchment document View-->
 
-<div data-role="view" id="attachDocView" data-layout="dashboardlayout" data-model="app.dashboard">
+<div data-role="view" id="attachDocView" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.attachshow">
     <div class="cd-tabs">
         <nav>
             <ul class="cd-tabs-navigation">
@@ -504,15 +505,139 @@
             </ul> <!-- cd-tabs-navigation -->
         </nav>
     </div>     
-    <div data-content="Attach Document" class="selected contBox">
-        <p>Gallery Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tenetur aut, cupiditate, libero eius rerum incidunt dolorem quo in officia.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ipsa vero, culpa doloremque voluptatum consectetur mollitia, atque expedita unde excepturi id, molestias maiores delectus quos molestiae. Ab iure provident adipisci eveniet quisquam ratione libero nam inventore error pariatur optio facilis assumenda sint atque cumque, omnis perspiciatis. Maxime minus quam voluptatum provident aliquam voluptatibus vel rerum. Soluta nulla tempora aspernatur maiores! Animi accusamus officiis neque exercitationem dolore ipsum maiores delectus asperiores reprehenderit pariatur placeat, quaerat sed illum optio qui enim odio temporibus, nulla nihil nemo quod dicta consectetur obcaecati vel. Perspiciatis animi corrupti quidem fugit deleniti, atque mollitia labore excepturi ut.</p>
-    </div>
+    <div data-content="Attach Document" class="contBox">
+        	<article id="screenfor">
+                <div class="warps clearfix">
+                <h2>List of Documents</h2>
+                   <div class="documentListBox">
+                   	<ul>
+                    	<li class="clearfix">
+                        	<div class="docsBluBox">
+                            	<span><img src="styles/images/docs-icon1.png" alt="img"></span>
+                            </div>
+                            <div class="uplodSecn">
+                            	<div id="attachUpdateDiv" class="cont" style="display:none;">
+                                    <span>PAN</span>
+                                    <a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-id="1">click to Upload</a>
+                                </div>
+                                
+                              <div id="attachUpdateMoreDiv" class="checkSavePic">
+                               	<div class="uploadPic"><img src="styles/images/save-pic.png" alt="img"></div>
+                              <div class="uploadPic"><img src="styles/images/save-pic.png" alt="img"></div>
+                                    <div class="uploadPic"><a data-role="button" data-click="app.dashboard.clickToUploadDiv"><img src="styles/images/add-pic.png" alt="img"></a></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                        	<div class="docsBluBox">
+                            	<span><img src="styles/images/docs-icon2.png" alt="img"></span>
+                            </div>
+                            <div class="uplodSecn">
+                            	<div class="cont">
+                                    <span>Address Proof</span>
+                                    <a href="#">click to Upload</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                        	<div class="docsBluBox">
+                            	<span><img src="styles/images/docs-icon3.png" alt="img"></span>
+                            </div>
+                            <div class="uplodSecn">
+                            	<div class="cont">
+                                    <span>Profit &amp; Loss Statement</span>
+                                    <a href="#">click to Upload</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                        	<div class="docsBluBox">
+                            	<span><img src="styles/images/docs-icon4.png" alt="img"></span>
+                            </div>
+                            <div class="uplodSecn">
+                            	<div class="cont">
+                                    <span>Balance sheet</span>
+                                    <a href="#">click to Upload</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                        	<div class="docsBluBox">
+                            	<span><img src="styles/images/docs-icon5.png" alt="img"></span>
+                            </div>
+                            <div class="uplodSecn">
+                            	<div class="cont">
+                                    <span>ITR returns</span>
+                                    <a href="#">click to Upload</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                        	<div class="docsBluBox">
+                            	<span><img src="styles/images/docs-icon6.png" alt="img"></span>
+                            </div>
+                            <div class="uplodSecn">
+                            	<div class="cont">
+                                    <span>Bank Statement</span>
+                                    <a href="#">click to Upload</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                   </div>
+                   <div class="buttonSectn clearfix">
+                        	<p><a href="#" class="gryBt">Back</a></p>
+                            <p><input type="button" class="blueBt" name="save" value="Save"></p>
+                            <p><input type="button" class="redBt" name="save continue" value="Save & continue"></p>
+                        </div> 
+                </div>
+			</article>
+            
+            <article id="Screenfive" style="display:none;">
+            	<div class="warps">
+               	  <h2>PAN No.</h2>
+                    <div class="cameraIconBox">
+                    	<div class="cameraBox"><a data-role="button" data-bind="click: takeAttachDocPhoto"><img src="styles/images/camera.png" alt="img"></a></div>
+                      <span>Click to Capture</span>
+                    </div>
+                    <div class="savepicBox clearfix">
+                    	<ul>
+                        	<li class="active">
+                            	<span><img id="attachDoc1" src="styles/images/pic.gif"  alt="img"></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            <li>
+                            	<span><img id="attachDoc2" src="styles/images/pic.gif"  alt="img"></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            <li>
+                            	<span><img id="attachDoc3" src="styles/images/pic.gif"  alt="img"></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            <li>
+                            	<span><img id="attachDoc4" src="styles/images/pic.gif"  alt="img"></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            <li>
+                            	<span><img id="attachDoc5" src="styles/images/pic.gif"  alt="img"></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            <li>
+                            	<span><img id="attachDoc6" src="styles/images/pic.gif"  alt="img"></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cnclSave">
+                    	<a data-role="button" data-bind="click: cancelAttachDoc" class="cncl">Cancel</a><a data-role="button" data-bind="click: saveAttachDoc" class="save">Attached</a>
+                    </div>
+                </div>
+            </article>         
+        </div>
 
 </div>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     jQuery(document).ready(function () {
         jQuery("body").on("click", ".addmore", function () {
             jQuery(".removeRow").show();
@@ -523,4 +648,44 @@
             jQuery(this).parents(".rptBoxmain").find(".rptBox:last").remove();
         }); 
     });
+</script>-->
+
+<script type="text/javascript">
+jQuery(document).ready(function () {
+jQuery("body").on("click", ".addmore", function () {
+   jQuery(".removeRow").show();
+   jQuery(".rptBoxmain").append('<div class="rptBox second"><hr><div class="rwfil clearfix"><p><input type="text" class="IN1 ipsm3" name="Name" id="name" placeholder="Name" ></p><p><input type="text" class="IN1 ipsm3" name="Office Address" id="office_address" placeholder="Office Address" ></p><p><input type="text" class="IN1 ipsm3 noMgRt" name="Mobile No" id="mobile_no" placeholder="Mobile No" ></p></div><div class="rwfil clearfix"><p><select original-title="Select State" class="IN1 ipsm3" id="state1" name="state" required=""><option value="">State</option><option value="">State</option></select></p><p><select original-title="City" class="IN1 ipsm3" id="city" name="city1" required=""><option value="">City</option><option value="">City</option></select></p><p><input type="text" class="IN1 ipsm3 noMgRt" name="Email Id" id="email" placeholder="Email Id" ></p></div><div class="rwfil blking clearfix"><p><input type="text" class="IN1 ipsm3 clndr" name="Date of Birth" id="date_birth" placeholder="Date of Birth" ></p><p><input type="text" class="IN1 ipsm3" name="PAN No" id="pan_no1" placeholder="PAN No" ></p><p><input type="text" class="IN1 ipsm3 noMgRt" name="Designation" id="designation" placeholder="Designation" ></p></div><div class="rwfil clearfix"><p><select original-title="Owner Ship %" class="IN1 ipsm4" id="owner_ship" name="owner ship" required=""><option value="">Owner Ship %</option><option value="">Owner Ship %</option></select></p></div></div>');
+   if(jQuery(".rptBox.second").length > 0)
+   {
+	  jQuery("#mainAdd").hide();
+	  jQuery(".sndAdRmv").show();
+   }
+   else
+   {
+	   jQuery("#mainAdd").show();
+	   jQuery(".sndAdRmv").show();
+   }
+});
+if(jQuery(".rptBox.second").length == 0)
+   {
+
+	  jQuery(".sndAdRmv").hide();
+	  
+   }
+   else
+   {
+	   jQuery(".sndAdRmv").show();
+   }
+
+jQuery("body").on("click", ".remove", function () {
+	jQuery(".rptBoxmain").find(".rptBox.second:last").remove();
+	if(jQuery(".rptBox.second").length > 0){jQuery("#mainAdd").hide();
+	jQuery(".sndAdRmv").show();}
+    else
+    {
+	   jQuery("#mainAdd").show();
+	   jQuery(".sndAdRmv").hide();
+   }
+});  
+});
 </script>
