@@ -1,6 +1,8 @@
 var app = app || {};
 
 app.dashboard = (function(){
+     var business_ID;
+     var customer_ID;
     
     var dashboardViewModel = (function(){
             var busi_Name;
@@ -14,8 +16,7 @@ app.dashboard = (function(){
             var busi_AccType;
             var busi_BankName;
             var busi_Nature;
-            var busi_Desc;
-            
+            var busi_Desc;            
             
             var cust_Name;
             var cust_ContNO;
@@ -35,18 +36,99 @@ app.dashboard = (function(){
         {
             
         };
+  
         
         var show = function()
         {
-                // create DateTimePicker from input HTML element
-                $("#datetimepicker").kendoDatePicker({
-                    value:new Date()
-                });
+  
+            customer_ID = localStorage.getItem("CUSTOMER_ID");
+            business_ID = localStorage.getItem("BUSINESS_ID");
             
-                $("#date_birth").kendoDatePicker({
-                    value:new Date()
-                });
+            $("#datetimepicker").removeAttr('disabled');
+            $("#datetimepicker").removeClass("k-input");
+            
+            $('#addremove').hide();
+                                    
+            $("#datetimepicker").kendoDatePicker({
+                                                         value: new Date(),
+                                                         position: "bottom left",
+                                                         animation: {
+                                                         open: {
+                                                                     effects: "slideIn:up"
+                                                                 }                
+                },
+                                                         open: function(e) {
+                                                             $(".disabledDay").parent().removeClass("k-link")
+                                                             $(".disabledDay").parent().removeAttr("href")
+                                                         },
+
+                 
+                                                         change: function() {
+                                                             var value = this.value();
+                                                         }
+                                                     }).data("kendoDatePicker");
+            
+                        $('#datetimepicker').attr('disabled', 'disabled');
+            
+                        $("#date_birth").kendoDatePicker({
+                                                         value: new Date(),
+                                                         position: "bottom left",
+                                                         animation: {
+                                                         open: {
+                                                                     effects: "slideIn:up"
+                                                                 }                
+                                                          },
+                                                         open: function(e) {
+                                                             $(".disabledDay").parent().removeClass("k-link")
+                                                             $(".disabledDay").parent().removeAttr("href")
+                                                         },
+
+                 
+                                                         change: function() {
+                                                             var value = this.value();
+                                                         }
+                                                     }).data("kendoDatePicker");
+        
+                         $('#date_birth').attr('disabled', 'disabled');
+            
+            if(typeof index === 'undefined')
+            {
+                 index = 0;
+                 removeVal = 0;
+            }
+            
+            $('.addmore').on("click",function(){
+                removeVal++;
+                
+                $("#mainAdd").hide();
+                $('#addremove').show();
+                var form = getForm(++index);
+                $('.rptBoxmain').append(form);
+            });
+            
+            $('.remove').on("click", function () {
+                console.log(removeVal);
+                $(".rptBox"+removeVal).remove();
+                if(removeVal>1)
+                {
+                    $("#mainAdd").hide();
+                }
+                else
+                {
+                    $('#addremove').hide();
+                    $("#mainAdd").show();
+                }
+                removeVal--;
+            });
         };
+        
+        
+        var getForm = function(index)
+        {
+            console.log(index);
+            return $('<div class="rptBox' + index + ' second"><hr><div class="rwfil clearfix"><p><input type="text" class="IN1 ipsm3" name="Name" id="name' + index + '" placeholder="Name" ></p><p><input type="text" class="IN1 ipsm3" name="Office Address" id="office_address'+index+'" placeholder="Office Address" ></p><p><input type="text" class="IN1 ipsm3 noMgRt" name="Mobile No" id="mobile_no'+index+'" placeholder="Mobile No" ></p></div><div class="rwfil clearfix"><p><select original-title="Select State" class="IN1 ipsm3" id="state1'+index+'" name="state" required=""><option value="">State</option><option value="">State</option></select></p><p><select original-title="City" class="IN1 ipsm3" id="city'+index+'" name="city1" required=""><option value="">City</option><option value="">City</option></select></p><p><input type="text" class="IN1 ipsm3 noMgRt" name="Email Id" id="email'+index+'" placeholder="Email Id" ></p></div><div class="rwfil blking clearfix"><p><input type="text" class="IN1 ipsm3 clndr" name="Date of Birth" id="date_birth'+index+'" placeholder="Date of Birth" ></p><p><input type="text" class="IN1 ipsm3" name="PAN No" id="pan_no1'+index+'" placeholder="PAN No" ></p><p><input type="text" class="IN1 ipsm3 noMgRt" name="Designation" id="designation'+index+'" placeholder="Designation" ></p></div><div class="rwfil clearfix"><p><select original-title="Owner Ship %" class="IN1 ipsm4" id="owner_ship'+index+'" name="owner ship" required=""><option value="">Owner Ship %</option><option value="">Owner Ship %</option></select></p></div></div>');
+        };
+        
         
         var saveFormDetail = function(e){
                 
@@ -91,12 +173,15 @@ app.dashboard = (function(){
         
         
         function goToNextPage(){
+           $(".km-scroll-container").css("-webkit-transform", "");  
            app.mobileApp.navigate('#bankStmView');  
         }
         
         function insertFormData(tx){
 
-            var queryBusi = 'INSERT INTO BUSINESS_DETAIL(BUSI_NAME,BUSI_OFF_ADDRESS,BUSI_STATE, BUSI_CONTACT_NO, BUSI_CITY,  BUSI_DOI , BUSI_PAN_NO, BUSI_BANK_AC_NO, BUSI_ACC_TYPE, BUSI_BANK_NAME,BUSI_NATURE, BUSI_DESC) VALUES ("'
+            var queryBusi = 'INSERT INTO BUSINESS_DETAIL(BUSINESS_ID ,BUSI_NAME,BUSI_OFF_ADDRESS,BUSI_STATE, BUSI_CONTACT_NO, BUSI_CITY,  BUSI_DOI , BUSI_PAN_NO, BUSI_BANK_AC_NO, BUSI_ACC_TYPE, BUSI_BANK_NAME,BUSI_NATURE, BUSI_DESC) VALUES ("'
+                        + business_ID
+                        + '","'
                         + busi_Name
                         + '","'
                         + busi_OffAdd
@@ -120,9 +205,12 @@ app.dashboard = (function(){
                         + busi_Nature
                         + '" ,"'
                         + busi_Desc + '")';            
-            
-            var queryCust = 'INSERT INTO CUSTOMER_DETAIL(BUSINESS_ID , CUST_NAME ,CUST_OFF_ADDRESS ,CUST_STATE, CUST_MOBILE , CUST_CITY , CUST_EMAIL , CUST_DOB, CUST_PAN_NO, CUST_DESIG , CUST_OWNERSHIP) VALUES ("'
-                        + '1100110022'
+         
+ 
+            var queryCust = 'INSERT INTO CUSTOMER_DETAIL(CUST_ID ,BUSINESS_ID , CUST_NAME ,CUST_OFF_ADDRESS ,CUST_STATE, CUST_MOBILE , CUST_CITY , CUST_EMAIL , CUST_DOB, CUST_PAN_NO, CUST_DESIG , CUST_OWNERSHIP) VALUES ("'
+                        + customer_ID
+                        + '","'
+                        + business_ID
                         + '","'
                         + cust_Name
                         + '","'
@@ -144,15 +232,15 @@ app.dashboard = (function(){
                         + '" ,"'            
                         + cust_OwnerShip + '")';
                         
-            
+             
              var queryloan = 'INSERT INTO LOAN_REQ_DETAIL(LOAN_AMOUNT , LOAN_TENURE ,CUST_ID ,BUSINESS_ID ) VALUES ("'
                         + loan_Amount
                         + '","'
                         + loan_Tenure
                         + '","'                        
-                        + 123
+                        + customer_ID
                         + '" ,"'            
-                        + 123456 + '")';
+                        + business_ID + '")';
 
             app.insertQuery(tx, queryBusi);
             app.insertQuery(tx, queryCust);
@@ -161,14 +249,20 @@ app.dashboard = (function(){
         
         var numberDocUpload=0;
         var attachshow = function(){
+            $(".km-scroll-container").css("-webkit-transform", ""); 
             $("#attachUpdateDiv").show();
             $("#attachUpdateMoreDiv").hide();
             numberDocUpload=0;
+            attachDocArray=[];
         }
         
         var clickToUploadDiv = function(){            
-           $("#screenfor").hide(); 
-           $("#Screenfive").show();            
+           $(".km-scroll-container").css("-webkit-transform", ""); 
+           app.mobileApp.navigate('#attachDocViewPhotoTab'); 
+           //$("#screenfor").hide(); 
+           //$("#Screenfive").show();
+           attachDocArray=[];
+           numberDocUpload=0;  
         }
         
         var takeAttachDocPhoto = function(){
@@ -182,38 +276,76 @@ app.dashboard = (function(){
                                         });
         }
         
-        var profileImagePath;                
+        //var profileImagePath;                
+        var attachDocArray=[];
         function attachDocSuccess(imageURI) {
             numberDocUpload++;            
             var imgDocShow = document.getElementById('attachDoc'+numberDocUpload);
             imgDocShow.src = imageURI;
-            profileImagePath = imageURI;               
-            //var db = app.getDb();
-            //db.transaction(updateProfilePic, app.errorCB, app.successCB);   
+            //profileImagePath = imageURI;             
+            attachDocArray.push(imageURI);
         }
         
         function onFail(message) {
             //console.log('Failed because: ' + message);
             
+        }   
+        
+        function insertDocItems(tx) {       
+            for(var i=0;i<attachDocArray.length;i++){            
+                var query = 'INSERT INTO CUST_ATTACH_DOC(CUST_ID ,ATTACH_DOC) VALUES ("'
+                        + customer_ID
+                        + '","'                        
+                        + attachDocArray[i] + '")';
+                
+                app.insertQuery(tx, query);
+             }   
+
+            /*"' DESC LIMIT 2 "*/            
         }
         
-        function updateProfilePic(tx) {       
-            var query = "UPDATE PROFILE_INFO SET profile_image='" + profileImagePath + "'";
-            app.updateQuery(tx, query);
-        }
-        
+
         var saveAttachDoc = function(){          
 
-           $("#screenfor").show(); 
-           $("#Screenfive").hide();
-            
-           $("#attachUpdateDiv").hide();
-           $("#attachUpdateMoreDiv").show();
-
+           //$("#screenfor").show(); 
+           //$("#Screenfive").hide();
+                        
+           $(".km-scroll-container").css("-webkit-transform", "");   
+           var db = app.getDb();
+           db.transaction(insertDocItems, app.errorCB, showSaveDoc);               
         }
         
-        var cancelAttachDoc = function(){        
+        function showSaveDoc(){
+           var db = app.getDb();
+           db.transaction(getSaveDocVal, app.errorCB, app.successCB);     
+        }
+        
+        function getSaveDocVal(tx){         
+            var query = "SELECT ATTACH_DOC FROM CUST_ATTACH_DOC WHERE CUST_ID='"+customer_ID+"' ORDER BY ID DESC LIMIT 2 ";
+            app.selectQuery(tx, query, attachDocData);
+        }
+        
+        function attachDocData(tx, results){               
+           var count = results.rows.length;          
+           app.mobileApp.navigate('#attachDocView');  
+           $("#attachUpdateDiv").hide();
+           $("#attachUpdateMoreDiv").show();            
 
+            console.log('count Value from DB-'+count);
+            if (count !== 0) {                 
+                var attachDoc1 =results.rows.item(0).ATTACH_DOC;
+                var attachDoc2 =results.rows.item(1).ATTACH_DOC;                
+                
+                var imgDocShow = document.getElementById('showSaveDoc1');
+                imgDocShow.src = attachDoc1;
+                
+                var imgDocShow1 = document.getElementById('showSaveDoc2');
+                imgDocShow1.src = attachDoc2;             
+            }   
+        }
+        
+        
+        var cancelAttachDoc = function(){        
           while(numberDocUpload>=1){  
             var imgDocShow = document.getElementById('attachDoc'+numberDocUpload);
             imgDocShow.src = 'styles/images/pic.gif';      
@@ -224,10 +356,30 @@ app.dashboard = (function(){
            $("#Screenfive").hide();                    
         }
         
+        var goToBankStm = function(){
+            $(".km-scroll-container").css("-webkit-transform", "");  
+            app.mobileApp.navigate('#bankStmView');
+        }
+        
+        var attachSave = function(){
+           app.showAlert("Data Save successfully","HDFC"); 
+           app.mobileApp.navigate('index.html');   
+        }
+        
+        var photoUplShow = function(){            
+            for(var i=1;i<=5;i++){
+                var imgDocShow = document.getElementById('attachDoc'+i);
+                imgDocShow.src = 'styles/images/pic.gif';
+            }  
+        }
+        
         return{
             int:int,
             show:show,
+            goToBankStm:goToBankStm,
+            photoUplShow:photoUplShow,
             clickToUploadDiv:clickToUploadDiv,
+            attachSave:attachSave,
             takeAttachDocPhoto:takeAttachDocPhoto,
             attachshow:attachshow,
             saveAttachDoc:saveAttachDoc,

@@ -97,7 +97,7 @@
                                 <div class="rwfil clearfix" id="datecorp">
                                     <p>
                                         <!--<input type="text" class="IN1 ipsm3 clndr" name="Date of Incorp" id="date_incorp" placeholder="Date of Incorp" >-->
-                                        <input id="datetimepicker"/>
+                                        <input id="datetimepicker" onkeydown="return false;" class="IN1 ipsm3"/>
                                     </p>
                                     <p>
                                         <input type="text" class="IN1 ipsm4 noMgRt" name="Bank A/C No" id="bank_acnt" placeholder="Bank A/C No" >
@@ -239,7 +239,7 @@
                                         <div class="rwfil blking clearfix">
                                             <p>
                                                 <!--<input type="text" class="IN1 ipsm3 clndr" name="Date of Birth" id="date_birth" placeholder="Date of Birth" >-->
-                                                <input id="date_birth" class="k-input"/>
+                                                <input id="date_birth" class="IN1 ipsm3 k-input"/>
                                             </p>
                                             <p>
                                                 <input type="text" class="IN1 ipsm3" name="PAN No" id="pan_no1" placeholder="PAN No" >
@@ -360,7 +360,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="rwfil blking sndAdRmv clearfix">
+                                <div  id="addremove" class="rwfil blking sndAdRmv clearfix">
                             	<p><a href="javascript:void(0)" class="addmore" >Add More</a><a class="remove" href="javascript:void(0)">Remove</a></p>
                                 </div>
                                 <h2>Loan Requirement</h2>
@@ -522,8 +522,8 @@
                                 </div>
                                 
                               <div id="attachUpdateMoreDiv" class="checkSavePic">
-                               	<div class="uploadPic"><img src="styles/images/save-pic.png" alt="img"></div>
-                              <div class="uploadPic"><img src="styles/images/save-pic.png" alt="img"></div>
+                               	<div class="uploadPic"><img id="showSaveDoc1" src="styles/images/save-pic.png" alt="img"></div>
+                                   <div class="uploadPic"><img id="showSaveDoc2" src="styles/images/save-pic.png" alt="img"></div>
                                     <div class="uploadPic"><a data-role="button" data-click="app.dashboard.clickToUploadDiv"><img src="styles/images/add-pic.png" alt="img"></a></div>
                                 </div>
                             </div>
@@ -585,15 +585,36 @@
                         </li>
                     </ul>
                    </div>
+                    
                    <div class="buttonSectn clearfix">
-                        	<p><a href="#" class="gryBt">Back</a></p>
-                            <p><input type="button" class="blueBt" name="save" value="Save"></p>
-                            <p><input type="button" class="redBt" name="save continue" value="Save & continue"></p>
-                        </div> 
+                        	<p><a data-role="button" data-bind="click: goToBankStm" class="gryBt">Back</a></p>
+                            <p><a type="button" class="blueBt" name="save" value="Save">Save</a></p>
+                            <p><a data-role="button" data-bind="click: attachSave" class="redBt" name="save continue" value="Save & continue">Save & continue</a></p>
+                   </div> 
                 </div>
 			</article>
-            
-            <article id="Screenfive" style="display:none;">
+        </div>
+   </div>
+
+
+<div data-role="view" id="attachDocViewPhotoTab" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.photoUplShow">
+    <div class="cd-tabs">
+        <nav>
+            <ul class="cd-tabs-navigation">
+                <li>
+                    <a data-content="Application form"  href="#dashboard">Application form </a>
+                </li>
+                <li>
+                    <a data-content="Bank statement" href="#bankStmView">Bank statement</a>
+                </li>
+                <li>
+                    <a data-content="Attach Document" class="selected" href="#attachDocView">Attach Document</a>
+                </li>
+            </ul> <!-- cd-tabs-navigation -->
+        </nav>
+    </div>     
+    <div data-content="Attach Document" class="contBox">            
+            <article id="Screenfive">
             	<div class="warps">
                	  <h2>PAN No.</h2>
                     <div class="cameraIconBox">
@@ -633,8 +654,7 @@
                     </div>
                 </div>
             </article>         
-        </div>
-
+    </div>
 </div>
 
 <!--<script type="text/javascript">

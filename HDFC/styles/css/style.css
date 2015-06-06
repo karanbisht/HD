@@ -59,8 +59,17 @@ span.selectOption:hover{color:#f6f6f6;background:#4096ee;}
 
 /*******Screen 2 ************/
 header {width:100%; text-align:center;border-top:4px solid #004c8f; padding:45px 0 60px;}
-header .logo { text-align:center; padding-bottom:40px;}
-header h1 {font-size:3.2em; font-weight:bold; display:block;font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; color:#004c8f; }
+#dashboard .logo { text-align:center; padding-bottom:10px;}
+#dashboard .km-view-title {padding:25px 0;}
+
+#bankStmView .logo { text-align:center; padding-bottom:10px;}
+#bankStmView .km-view-title {padding:25px 0;}
+
+#attachDocView .logo { text-align:center; padding-bottom:10px;}
+#attachDocView .km-view-title {padding:25px 0;}
+
+
+.km-header h1 {font-size:1.8em; font-weight:bold; display:block;font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; color:#004c8f; }
 
 .cd-tabs {position: relative;}
 .cd-tabs:after {content: "";display: table;clear: both;}
@@ -107,15 +116,16 @@ background-repeat: no-repeat; color:#5e5e5e;  }
 /***************screentwo content***********/
 #screenTwo { width:100%; padding:60px 0 0;}
 #screenTwo h2 { font-size:1.7em; color:#353535; padding-bottom:20px;font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; }
-#screenTwo input[type="text"] { border: 1px solid #6e6e6e; border-radius: 3px; color: #333; font-family:"opensans_reg",Arial,Helvetica,sans-serif; font-size:14px; padding:8px 12px;}
+#screenTwo input, #screenTwo number[type="text"] {height:auto; border: 1px solid #6e6e6e; border-radius: 3px; color: #333; font-family:"opensans_reg",Arial,Helvetica,sans-serif; font-size:14px; padding:8px 12px;}
 .buttonSectn {margin:20px 0;}
-.buttonSectn a, .buttonSectn input[type="button"] {border-radius: 3px; border:0; cursor:pointer; color:#fff; font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; text-transform:uppercase; font-size:1.8em; text-align:center; padding:10px 40px; margin-right:25px; display:block; float:left;}
-.buttonSectn a {padding:17px 40px; }
+.buttonSectn a, .buttonSectn input[type="button"] {border-radius: 3px; border:0; cursor:pointer; color:#fff !important; font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; text-transform:uppercase; font-size:1.8em; text-align:center; padding:10px 40px; margin-right:25px; display:block; float:left;}
+.buttonSectn a {padding:12px 40px }
+
 .redBt { background:#e90d14;}
 .blueBt { background:#105796;}
 .gryBt { background:#7b7b7b;}
 #screenTwo select {border: 1px solid #6e6e6e; border-radius: 3px; color: #333; font-family: "opensans_reg",Arial,Helvetica,sans-serif; font-size:14px; padding:8px 12px;}
-input[type="text"]:focus, select:focus, textarea:focus {background-color: #e9f5ff;color:000000;border:1px solid #0c66b1 !important;}
+input[type="text"]:focus, select:focus, textarea:focus {background-color: #e9f5ff;color:#000000;border:1px solid #0c66b1 !important;}
 .rws { clear: left; display: block; padding-bottom: 10px;}
 .rws .rwfil {width: auto;}
 .rws .rwfil.blking { margin-bottom:10px;}
@@ -133,9 +143,12 @@ textarea.ipsm10 {border: 1px solid #6e6e6e; border-radius: 3px; color: #333; fon
 #screenTwo .remove{width:150px;float: left; background:#e90d14; color:#fff; padding:9px 0 10px; display:inline-block; font-size:1.8em;font-family: 'opensans_bld', Arial, Helvetica, sans-serif;  text-align:center;border-radius: 3px; display:block; margin:0 0 0 17px}
 #screenTwo .rptBox.first .remove{ display:none;}
 #screenTwo hr {  margin-bottom:30px; height:1px; border:0;border-bottom:1px solid #d3d3d3;} 
-
-
 .rptBoxmain > .rptBox.second + .rwfil.blking{ display:block;}
+
+#applicationForm #datecorp p span.k-datepicker, .rptBoxmain p span.k-datepicker {width: 316px; padding:0;}
+#applicationForm #datecorp p span.k-datepicker span.k-picker-wrap, .rptBoxmain p span.k-datepicker span.k-picker-wrap {width: 316px; padding:0;}
+#applicationForm #datecorp p span.k-datepicker span.k-picker-wrap input, .rptBoxmain p span.k-datepicker span.k-picker-wrap input {padding:6px 12px !important;}
+
 /***************screentwo content***********/
 
 /***************screenthree content***********/
@@ -163,11 +176,12 @@ textarea.ipsm10 {border: 1px solid #6e6e6e; border-radius: 3px; color: #333; fon
 #screenfor .documentListBox ul li .uplodSecn { width:79%; float:left;font-family:"opensans_smbld",Arial,Helvetica,sans-serif;}
 #screenfor .documentListBox ul li .uplodSecn span {font-size:2.3em; color:#393939; display:block; padding-bottom:20px;line-height: 1.8em;}
 #screenfor .documentListBox ul li .uplodSecn a { border:1px solid #c1c1c1; text-transform:uppercase; color:#787878; font-size:1.2em; padding:10px 15px; border-radius:3px; display:inline-block}
-
+#screenfor .documentListBox ul li .uplodSecn a span {font-size:1em; padding:0;line-height: 1em;color:#787878;}
 #screenfor .checkSavePic { width:100%;}
 #screenfor .checkSavePic .uploadPic { width:17%; float:left; margin:0 20px 0 0; background:#004c8f; padding:5px;}
 #screenfor .checkSavePic .uploadPic img { display:block; width:100%;}
 #screenfor .checkSavePic .uploadPic a { border:0 !important; padding:0 !important;display: block !important;}
+.km-state-active {background:#d6e7ff !important;}
 /***************Screenfor content**********/
 
 /***************Screenfive content**********/
@@ -180,7 +194,7 @@ textarea.ipsm10 {border: 1px solid #6e6e6e; border-radius: 3px; color: #333; fon
 #Screenfive .cameraIconBox span { color:#353535; font-size:1.7em; display:block;font-family:"opensans_smbld",Arial,Helvetica,sans-serif;}
 #Screenfive .savepicBox { width:100%; padding-bottom:60px;}
 #Screenfive .savepicBox ul { list-style:none; padding:0;}
-#Screenfive .savepicBox ul li { overflow:hidden; float:left; width:25%; position:relative;}
+#Screenfive .savepicBox ul li { overflow:hidden; float:left; width:25%; position:relative; height:212px;}
 #Screenfive .savepicBox ul li:nth-child(1) , #Screenfive .savepicBox ul li:nth-child(2) , #Screenfive .savepicBox ul li:nth-child(3) , #Screenfive .savepicBox ul li:nth-child(4){ border-top:1px solid #ccc;}
 #Screenfive .savepicBox ul li:nth-child(4) span { border-right:1px solid #ccc;}
 #Screenfive .savepicBox ul li span { display:block; font-size:0; line-height:0; border-bottom:1px solid #cccccc; border-left:1px solid #ccc;}
