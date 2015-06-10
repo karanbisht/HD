@@ -1,19 +1,4 @@
-<div data-role="view" id="dashboard" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.show">
-        <div class="cd-tabs">
-            <nav>
-                <ul class="cd-tabs-navigation">
-                    <li>
-                        <a data-content="Application form" class="selected" href="#dashboard">Application form </a>
-                    </li>
-                    <li>
-                        <a data-content="Bank statement" href="#bankStmView">Bank statement</a>
-                    </li>
-                    <li>
-                        <a data-content="Attach Document" href="#attachDocView">Attach Document</a>
-                    </li>
-                </ul> <!-- cd-tabs-navigation -->
-            </nav>
-        </div>     
+<div data-role="view" id="dashboard" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.show"  data-use-native-scrolling="true">
         <div class="cd-tabs-content">
             <div data-content="Application form" class="selected contBox">
                 <article id="screenTwo">
@@ -26,7 +11,7 @@
                                         <input type="text" class="IN1 ipsm3" name="Business Name" id="business_name" placeholder="Business Name" >
                                     </p>
                                     <p>
-                                        <input type="number" class="IN1 ipsm3" name="Contact No" id="contact_no" placeholder="Contact No" >
+                                        <input type="number" pattern="[0-9]*" step="0.01" class="IN1 ipsm3"  id="contact_no" placeholder="Contact No" >
                                     </p>
                                     <p>
                                         <input type="text" class="IN1 ipsm3 noMgRt" name="Office Address" id="office_address" placeholder="Office Address" >
@@ -171,7 +156,7 @@
                                                 <input type="text" class="IN1 ipsm3" name="Office Address" id="office_address_cust" placeholder="Office Address" >
                                             </p>
                                             <p>
-                                                <input type="text" class="IN1 ipsm3 noMgRt" name="Mobile No" id="mobile_no" placeholder="Mobile No" >
+                                                <input type="number" pattern="[0-9]*" step="0.01" class="IN1 ipsm3 noMgRt"  id="mobile_no" placeholder="Mobile No" >
                                             </p>
                                         </div>
                                         <div class="rwfil clearfix">
@@ -360,7 +345,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div  id="addremove" class="rwfil blking sndAdRmv clearfix">
+                                <div  id="addremove" class="rwfil blking sndAdRmv clearfix addremove">
                             	<p><a href="javascript:void(0)" class="addmore" >Add More</a><a class="remove" href="javascript:void(0)">Remove</a></p>
                                 </div>
                                 <h2>Loan Requirement</h2>
@@ -411,22 +396,7 @@
 
 <!--bank Statment View-->
 
-<div data-role="view" id="bankStmView" data-layout="dashboardlayout" data-model="app.dashboard">
-    <div class="cd-tabs">
-        <nav>
-            <ul class="cd-tabs-navigation">
-                <li>
-                    <a data-content="Application form" href="#dashboard">Application form </a>
-                </li>
-                <li>
-                    <a data-content="Bank statement" class="selected" href="#bankStmView">Bank statement</a>
-                </li>
-                <li>
-                    <a data-content="Attach Document" href="#attachDocView">Attach Document</a>
-                </li>
-            </ul> <!-- cd-tabs-navigation -->
-        </nav>
-    </div>     
+<div data-role="view" id="bankStmView" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.bnkStmShow" data-use-native-scrolling="true">
     <div data-content="Bank statement" class="selected contBox">
         <div class="warps">
             <article id="screenthree">
@@ -472,7 +442,8 @@
                         <input type="Password" class="IN1 ipsm3" name="Password" id="password" placeholder="Password" >
                     </div>
                     <div class="rw">
-                        <input type="button" name="submit" id="submit" value="Submit">
+                        <!--<input type="button" name="submit" id="submit" value="Submit">-->
+                        <a data-role="button" data-click="app.dashboard.submitBnkStm" id="submit" name="submit" value="Submit">Submit</a>
                     </div>
                     <div class="rw">
                         <a href="#attachDocView" class="skip">Skip this step</a>
@@ -486,25 +457,9 @@
     </div>
 </div>
 
-
 <!--Attchment document View-->
 
-<div data-role="view" id="attachDocView" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.attachshow">
-    <div class="cd-tabs">
-        <nav>
-            <ul class="cd-tabs-navigation">
-                <li>
-                    <a data-content="Application form"  href="#dashboard">Application form </a>
-                </li>
-                <li>
-                    <a data-content="Bank statement" href="#bankStmView">Bank statement</a>
-                </li>
-                <li>
-                    <a data-content="Attach Document" class="selected" href="#attachDocView">Attach Document</a>
-                </li>
-            </ul> <!-- cd-tabs-navigation -->
-        </nav>
-    </div>     
+<div data-role="view" id="attachDocView" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.attachshow" data-use-native-scrolling="true">
     <div data-content="Attach Document" class="contBox">
         	<article id="screenfor">
                 <div class="warps clearfix">
@@ -513,18 +468,20 @@
                    	<ul>
                     	<li class="clearfix">
                         	<div class="docsBluBox">
-                            	<span><img src="styles/images/docs-icon1.png" alt="img"></span>
+                            	<span><img src="styles/images/docs-icon4.png" alt="img"></span>
                             </div>
                             <div class="uplodSecn">
                             	<div id="attachUpdateDiv" class="cont" style="display:none;">
-                                    <span>PAN</span>
-                                    <a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-id="1">click to Upload</a>
-                                </div>
-                                
-                              <div id="attachUpdateMoreDiv" class="checkSavePic">
-                               	<div class="uploadPic"><img id="showSaveDoc1" src="styles/images/save-pic.png" alt="img"></div>
-                                   <div class="uploadPic"><img id="showSaveDoc2" src="styles/images/save-pic.png" alt="img"></div>
-                                    <div class="uploadPic"><a data-role="button" data-click="app.dashboard.clickToUploadDiv"><img src="styles/images/add-pic.png" alt="img"></a></div>
+                                    <span>Balance sheet</span>
+                                    <a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="1" data-title="Balance sheet" data-DBtitle="">click to Upload</a>
+                                    <!--<a data-role="button" data-click="app.dashboard.clickToViewUploadDiv" data-from="1">view Uploaded Document</a>-->
+                                </div>                                
+                                <div id="attachUpdateMoreDiv" class="checkSavePic">
+                                    <h5>Balance sheet</h5>
+                                      <div class="clearfix"><div class="uploadPic"  ><img id="showSaveDoc1" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"><img id="showSaveDoc2" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"><a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="2" data-title="Balance sheet" data-DBtitle=""><img src="styles/images/add-pic.png" alt="img"></a></div>
+                                      </div>
                                 </div>
                             </div>
                         </li>
@@ -533,9 +490,16 @@
                             	<span><img src="styles/images/docs-icon2.png" alt="img"></span>
                             </div>
                             <div class="uplodSecn">
-                            	<div class="cont">
+                            	<div id="attachUpdateDivAP" class="cont">
                                     <span>Address Proof</span>
-                                    <a href="#">click to Upload</a>
+                                    <a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="1" data-DBtitle="AP" data-title="Address Proof">click to Upload</a>
+                                </div>
+                                <div id="attachUpdateMoreDivAP" class="checkSavePic">
+                                    <h5>Address Proof</h5>
+                                      <div class="clearfix"><div class="uploadPic"  ><img id="showSaveDocAP1" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"  ><img id="showSaveDocAP2" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"><a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="2" data-DBtitle="AP" data-title="Address Proof"><img src="styles/images/add-pic.png" alt="img"></a></div>
+                                      </div>
                                 </div>
                             </div>
                         </li>
@@ -544,20 +508,34 @@
                             	<span><img src="styles/images/docs-icon3.png" alt="img"></span>
                             </div>
                             <div class="uplodSecn">
-                            	<div class="cont">
+                            	<div id="attachUpdateDivPL" class="cont">
                                     <span>Profit &amp; Loss Statement</span>
-                                    <a href="#">click to Upload</a>
+                                    <a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="1" data-DBtitle="PL" data-title="Profit &amp; Loss Statement">click to Upload</a>
+                                </div>
+                                 <div id="attachUpdateMoreDivPL" class="checkSavePic">
+                                    <h5>Profit &amp; Loss Statement</h5>
+                                      <div class="clearfix"><div class="uploadPic"><img id="showSaveDocPL1" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"  ><img id="showSaveDocPL2" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"><a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="2" data-DBtitle="PL" data-title="Profit &amp; Loss Statement"><img src="styles/images/add-pic.png" alt="img"></a></div>
+                                      </div>
                                 </div>
                             </div>
                         </li>
                         <li class="clearfix">
                         	<div class="docsBluBox">
-                            	<span><img src="styles/images/docs-icon4.png" alt="img"></span>
+                            	<span><img src="styles/images/docs-icon1.png" alt="img"></span>
                             </div>
                             <div class="uplodSecn">
-                            	<div class="cont">
-                                    <span>Balance sheet</span>
-                                    <a href="#">click to Upload</a>
+                            	<div id="attachUpdateDivPAN" class="cont">
+                                    <span>PAN</span>
+                                    <a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="1" data-DBtitle="PAN" data-title="PAN">click to Upload</a>
+                                </div>
+                                <div id="attachUpdateMoreDivPAN" class="checkSavePic">
+                                    <h5>PAN</h5>
+                                      <div class="clearfix"><div class="uploadPic"><img id="showSaveDocPAN1" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"  ><img id="showSaveDocPAN2" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"><a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="2"  data-DBtitle="PAN"data-title="PAN"><img src="styles/images/add-pic.png" alt="img"></a></div>
+                                      </div>
                                 </div>
                             </div>
                         </li>
@@ -566,9 +544,16 @@
                             	<span><img src="styles/images/docs-icon5.png" alt="img"></span>
                             </div>
                             <div class="uplodSecn">
-                            	<div class="cont">
+                            	<div id="attachUpdateDivITR" class="cont">
                                     <span>ITR returns</span>
-                                    <a href="#">click to Upload</a>
+                                    <a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="1" data-DBtitle="ITR"  data-title="ITR returns">click to Upload</a>
+                                </div>
+                                <div id="attachUpdateMoreDivITR" class="checkSavePic">
+                                    <h5>ITR returns</h5>
+                                      <div class="clearfix"><div class="uploadPic"><img id="showSaveDocITR1" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"  ><img id="showSaveDocITR2" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"><a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-DBtitle="ITR" data-from="2" data-title="ITR returns" ><img src="styles/images/add-pic.png" alt="img"></a></div>
+                                      </div>
                                 </div>
                             </div>
                         </li>
@@ -577,9 +562,16 @@
                             	<span><img src="styles/images/docs-icon6.png" alt="img"></span>
                             </div>
                             <div class="uplodSecn">
-                            	<div class="cont">
+                            	<div id="attachUpdateDivBSTM" class="cont">
                                     <span>Bank Statement</span>
-                                    <a href="#">click to Upload</a>
+                                    <a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="1" data-title="Bank Statement" data-DBtitle="BST">click to Upload</a>
+                                </div>
+                                <div id="attachUpdateMoreDivBSTM" class="checkSavePic">
+                                    <h5>Bank Statement</h5>
+                                      <div class="clearfix"><div class="uploadPic"><img id="showSaveDocBSTM1" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"  ><img id="showSaveDocBSTM2" src="styles/images/save-pic.png" alt="img" data-role="button" data-click="app.dashboard.clickOnImg"></div>
+                                           <div class="uploadPic"><a data-role="button" data-click="app.dashboard.clickToUploadDiv" data-from="2" data-DBtitle="BST" data-title="Bank Statement" ><img src="styles/images/add-pic.png" alt="img"></a></div>
+                                      </div>
                                 </div>
                             </div>
                         </li>
@@ -597,60 +589,91 @@
    </div>
 
 
-<div data-role="view" id="attachDocViewPhotoTab" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.photoUplShow">
-    <div class="cd-tabs">
-        <nav>
-            <ul class="cd-tabs-navigation">
-                <li>
-                    <a data-content="Application form"  href="#dashboard">Application form </a>
-                </li>
-                <li>
-                    <a data-content="Bank statement" href="#bankStmView">Bank statement</a>
-                </li>
-                <li>
-                    <a data-content="Attach Document" class="selected" href="#attachDocView">Attach Document</a>
-                </li>
-            </ul> <!-- cd-tabs-navigation -->
-        </nav>
-    </div>     
+<div data-role="view" id="attachDocViewPhotoTab" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.photoUplShow" data-use-native-scrolling="true">
     <div data-content="Attach Document" class="contBox">            
             <article id="Screenfive">
             	<div class="warps">
-               	  <h2>PAN No.</h2>
+               	  <h2 id="docIdName"></h2>
                     <div class="cameraIconBox">
                     	<div class="cameraBox"><a data-role="button" data-bind="click: takeAttachDocPhoto"><img src="styles/images/camera.png" alt="img"></a></div>
                       <span>Click to Capture</span>
                     </div>
                     <div class="savepicBox clearfix">
                     	<ul>
-                        	<li class="active">
-                            	<span><img id="attachDoc1" src="styles/images/pic.gif"  alt="img"></span>
+                        	<li id="listAttach1" class="active"  data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="0">
+                            	<span ><img id="attachDoc1" src="styles/images/pic.gif"  alt="img"></span>
                                 <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
                             </li>
-                            <li>
-                            	<span><img id="attachDoc2" src="styles/images/pic.gif"  alt="img"></span>
+                            <li id="listAttach2" data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="1">
+                            	<span><img id="attachDoc2" src="styles/images/pic.gif"  alt="img" ></span>
                                 <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
                             </li>
-                            <li>
-                            	<span><img id="attachDoc3" src="styles/images/pic.gif"  alt="img"></span>
+                            <li id="listAttach3" data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="2">
+                            	<span><img id="attachDoc3" src="styles/images/pic.gif"  alt="img" ></span>
                                 <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
                             </li>
-                            <li>
-                            	<span><img id="attachDoc4" src="styles/images/pic.gif"  alt="img"></span>
+                            <li id="listAttach4" data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="3">
+                            	<span><img id="attachDoc4" src="styles/images/pic.gif"  alt="img" ></span>
                                 <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
                             </li>
-                            <li>
-                            	<span><img id="attachDoc5" src="styles/images/pic.gif"  alt="img"></span>
+                            <li id="listAttach5" data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="4">
+                            	<span><img id="attachDoc5" src="styles/images/pic.gif"  alt="img" ></span>
                                 <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
                             </li>
-                            <li>
-                            	<span><img id="attachDoc6" src="styles/images/pic.gif"  alt="img"></span>
+                            <li id="listAttach6" data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="5">
+                            	<span><img id="attachDoc6" src="styles/images/pic.gif"  alt="img" ></span>
                                 <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
                             </li>
                         </ul>
                     </div>
                     <div class="cnclSave">
-                    	<a data-role="button" data-bind="click: cancelAttachDoc" class="cncl">Cancel</a><a data-role="button" data-bind="click: saveAttachDoc" class="save">Attached</a>
+                    	<a data-role="button" data-bind="click: cancelAttachDoc" class="cncl">Cancel</a><a data-role="button" data-bind="click: saveAttachDoc" class="save">Confirm</a>
+                    </div>
+                </div>
+            </article>         
+    </div>
+</div>
+
+
+
+<div data-role="view" id="attachDocViewSavePhotoTab" data-layout="dashboardlayout" data-model="app.dashboard" data-show="app.dashboard.showPhotoUplShow" data-use-native-scrolling="true">
+    <div data-content="Attach Document" class="contBox">            
+            <article id="Screenfive">
+            	<div class="warps">
+               	 <h2>PAN DOCUMENTS</h2>                     
+                    <div class="savepicBox clearfix">
+                    	<ul id="containerUL">
+                            
+                            <!--
+                        	<li id="listAttach1" class="active"  data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="0">
+                            	<span ><img id="attachDoc1" src="styles/images/pic.gif"  alt="img"></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            <li id="listAttach2" data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="1">
+                            	<span><img id="attachDoc2" src="styles/images/pic.gif"  alt="img" ></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            <li id="listAttach3" data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="2">
+                            	<span><img id="attachDoc3" src="styles/images/pic.gif"  alt="img" ></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            <li id="listAttach4" data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="3">
+                            	<span><img id="attachDoc4" src="styles/images/pic.gif"  alt="img" ></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            <li id="listAttach5" data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="4">
+                            	<span><img id="attachDoc5" src="styles/images/pic.gif"  alt="img" ></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            <li id="listAttach6" data-role="button" data-click="app.dashboard.clickOnAttachImg" data-index="5">
+                            	<span><img id="attachDoc6" src="styles/images/pic.gif"  alt="img" ></span>
+                                <div class="right"><img src="styles/images/active-pic.png" alt="img"></div>
+                            </li>
+                            -->
+                        </ul>
+                    </div>
+                    <div id="goBackFrmView" class="cnclSave">
+                    	<a data-role="button" data-bind="click: goBackAgain" class="save">Back</a>
                     </div>
                 </div>
             </article>         
@@ -670,7 +693,7 @@
     });
 </script>-->
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 jQuery(document).ready(function () {
 jQuery("body").on("click", ".addmore", function () {
    jQuery(".removeRow").show();
@@ -708,4 +731,4 @@ jQuery("body").on("click", ".remove", function () {
    }
 });  
 });
-</script>
+</script>-->

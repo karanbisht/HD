@@ -1,6 +1,8 @@
 var app = (function (win) {
     'use strict';
 
+    var EXIT_APP ="Press again to exit.";
+    
     // Global error handling
     var showAlert = function(message, title, callback) {
         navigator.notification.alert(message, callback || function () {
@@ -16,7 +18,7 @@ var app = (function (win) {
 
         var message = e.message + "' from " + e.filename + ":" + e.lineno;
 
-        showAlert(message, 'Error occured');
+        console.log(message, 'Error occured');
 
         return true;
     });
@@ -30,12 +32,29 @@ var app = (function (win) {
 
 
     // Handle device back button tap
+    var lastClickTime11 = 0;
+    var backButtonClickCount=0;
+    
     var onBackKeyDown = function(e) {        
         if (app.mobileApp.view()['element']['0']['id']==='welcomeToHDFC') {
-            navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
-                navigator.app.exitApp();   
-                e.preventDefault();
-            }, 'Exit', ['OK', 'Cancel']);       
+            if(backButtonClickCount===0){
+                window.plugins.toast.showShortBottom(app.EXIT_APP);                  
+            }
+            var current = new Date().getTime();
+	        var delta = current - lastClickTime11;
+	        lastClickTime11 = current;
+	        if (delta < 3000) {
+                backButtonClickCount=0;
+                e.preventDefault();            
+                navigator.app.exitApp();
+                
+	        }else {
+                if(backButtonClickCount===0){
+                    backButtonClickCount=1;
+                }else{
+                   window.plugins.toast.showShortBottom(app.EXIT_APP); 
+                }                
+        	}
         }else if (app.mobileApp.view()['element']['0']['id']==='dashboard') {
             app.mobileApp.navigate("index.html");   
         }else if (app.mobileApp.view()['element']['0']['id']==='bankStmView') {
@@ -48,6 +67,9 @@ var app = (function (win) {
     var onDeviceReady = function() {
         document.addEventListener('backbutton', onBackKeyDown, false);
         navigator.splashscreen.hide();
+        
+        //StatusBar.overlaysWebView(false);
+        //StatusBar.backgroundColorByHexString('#000000');
         
         var db = getDb();
         db.transaction(createDB, app.errorCB, app.successCB);
@@ -66,6 +88,16 @@ var app = (function (win) {
         
         tx.executeSql('CREATE TABLE IF NOT EXISTS CUST_ATTACH_DOC(ID INTEGER PRIMARY KEY AUTOINCREMENT ,CUST_ID INTEGER , ATTACH_DOC TEXT)');
 
+        tx.executeSql('CREATE TABLE IF NOT EXISTS CUST_ATTACH_DOCAP(ID INTEGER PRIMARY KEY AUTOINCREMENT ,CUST_ID INTEGER , ATTACH_DOC TEXT)');
+
+        tx.executeSql('CREATE TABLE IF NOT EXISTS CUST_ATTACH_DOCPL(ID INTEGER PRIMARY KEY AUTOINCREMENT ,CUST_ID INTEGER , ATTACH_DOC TEXT)');
+
+        tx.executeSql('CREATE TABLE IF NOT EXISTS CUST_ATTACH_DOCPAN(ID INTEGER PRIMARY KEY AUTOINCREMENT ,CUST_ID INTEGER , ATTACH_DOC TEXT)');
+
+        tx.executeSql('CREATE TABLE IF NOT EXISTS CUST_ATTACH_DOCITR(ID INTEGER PRIMARY KEY AUTOINCREMENT ,CUST_ID INTEGER , ATTACH_DOC TEXT)');
+
+        tx.executeSql('CREATE TABLE IF NOT EXISTS CUST_ATTACH_DOCBST(ID INTEGER PRIMARY KEY AUTOINCREMENT ,CUST_ID INTEGER , ATTACH_DOC TEXT)');
+
         //tx.executeSql('ALTER TABLE CUSTOMER_DETAIL AUTO_INCREMENT = 1000'); 
         //tx.executeSql('ALTER TABLE BUSINESS_DETAIL AUTO_INCREMENT = 1000'); 
         //tx.executeSql('ALTER TABLE LOAN_REQ_DETAIL AUTO_INCREMENT = 1000'); 
@@ -76,7 +108,7 @@ var app = (function (win) {
 
 
 
-    var os = kendo.support.mobileOS,
+     var os = kendo.support.mobileOS,
         statusBarStyle = os.ios && os.flatVersion >= 700 ? 'black-translucent' : 'black';
 
     // Initialize KendoUI mobile application
@@ -122,14 +154,33 @@ var app = (function (win) {
         tx.executeSql(updateQue);
     };  
     
+    var devicePlatform = function() {
+        return device.platform;
+    };
+    
+    var checkSimulator = function() {
+        if (window.navigator.simulator === true) {
+            //alert('This plugin is not available in the simulator.');
+            return true;
+        } else if (window.plugins.toast === undefined) {
+            //alert('Plugin not found. Maybe you are running in AppBuilder Companion app which currently does not support this plugin.');
+            return true;
+        } else {
+            return false;
+        }
+    };
+    
     return {
         showAlert: showAlert,
         showError: showError,
         getDb:getDb,
+        EXIT_APP:EXIT_APP,
         errorCB:errorCB,
+        devicePlatform:devicePlatform,
         successCB:successCB,
         selectQuery:selectQuery,
         insertQuery:insertQuery,
+        checkSimulator:checkSimulator,
         deleteQuery:deleteQuery,
         updateQuery:updateQuery,
         showConfirm: showConfirm,

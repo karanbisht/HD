@@ -28,7 +28,7 @@ table {
 	border-spacing: 0;
 }
 
-body {font-weight: normal;font-size: .8em;	line-height: 1.6em;	font-family: 'Open Sans', Frutiger, Calibri, 'Myriad Pro', Myriad, sans-serif;	color: #000;height: auto; border-bottom:15px solid #014c90}
+body {font-weight: normal;font-size: .8em;	line-height: 1.6em;	font-family: 'Open Sans', Frutiger, Calibri, 'Myriad Pro', Myriad, sans-serif;	color: #000;height: auto; /*border-bottom:15px solid #014c90*/}
 
 #wrapper {width:100%;}
 .warps {max-width:1005px; width:100%; margin:0 auto;}
@@ -49,8 +49,8 @@ body {font-weight: normal;font-size: .8em;	line-height: 1.6em;	font-family: 'Ope
 .screenOne .formBox input[type="button"] { background:#e90d14; border-radius:5px; width:100%; color:#fff; text-align:center; border:0; font-family:"opensans_smbld",Arial,Helvetica,sans-serif; padding:12px 3%; font-size:1.8em; text-transform:uppercase; cursor:pointer;}
 
 div.selectBox{position:relative;display:inline-block;cursor:default;text-align:left;line-height:30px;clear:both;color:#888; width:100%;font-family: 'opensans_lgt', Arial, Helvetica, sans-serif; font-size:1.5em;}
-span.selected{width:93%;text-indent:20px;border-right:none;border-top-left-radius:5px;border-bottom-left-radius:5px;background:#e9e9e9 url(../images/bder.png) right top no-repeat;overflow:hidden; }
-span.selectArrow{width:7%;border-top-right-radius:5px;border-bottom-right-radius:5px;text-align:center;font-size:20px;-webkit-user-select: none;				-khtml-user-select: none;-moz-user-select: none;-o-user-select: none;user-select: none;background:#e9e9e9;}
+span.selected{width:90%;text-indent:20px;border-right:none;border-top-left-radius:5px;border-bottom-left-radius:5px;background:#e9e9e9 url(../images/bder.png) right top no-repeat;overflow:hidden; }
+span.selectArrow{width:10%;border-top-right-radius:5px;border-bottom-right-radius:5px;text-align:center;font-size:20px;-webkit-user-select: none;				-khtml-user-select: none;-moz-user-select: none;-o-user-select: none;user-select: none;background:#e9e9e9;}
 span.selectArrow,span.selected{position:relative;float:left;z-index:1; padding:12px 0;}
 div.selectOptions{position:absolute;top:50px;left:0;width:100%;border-bottom-right-radius:5px;border-bottom-left-radius:5px;overflow:hidden;background:#f6f6f6;padding-top:2px;display:none;}
 span.selectOption{display:block;width:94%;line-height:20px;padding:15px 3%; background:#004b8b; color:#fff;}
@@ -59,16 +59,8 @@ span.selectOption:hover{color:#f6f6f6;background:#4096ee;}
 
 /*******Screen 2 ************/
 header {width:100%; text-align:center;border-top:4px solid #004c8f; padding:45px 0 60px;}
-#dashboard .logo { text-align:center; padding-bottom:10px;}
-#dashboard .km-view-title {padding:25px 0;}
-
-#bankStmView .logo { text-align:center; padding-bottom:10px;}
-#bankStmView .km-view-title {padding:25px 0;}
-
-#attachDocView .logo { text-align:center; padding-bottom:10px;}
-#attachDocView .km-view-title {padding:25px 0;}
-
-
+.logo { text-align:center; padding-bottom:10px;}
+.km-view-title {padding:25px 0;}
 .km-header h1 {font-size:1.8em; font-weight:bold; display:block;font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; color:#004c8f; }
 
 .cd-tabs {position: relative;}
@@ -76,7 +68,7 @@ header {width:100%; text-align:center;border-top:4px solid #004c8f; padding:45px
 .cd-tabs::after {position: absolute;top: 0;right: 0;height: 60px;width: 50px;z-index: 1;pointer-events: none;background: -webkit-linear-gradient( right , #f8f7ee, rgba(248, 247, 238, 0));background: linear-gradient(to left, #f8f7ee, rgba(248, 247, 238, 0));visibility: visible;opacity: 1;-webkit-transition: opacity .3s 0s, visibility 0s 0s;-moz-transition: opacity .3s 0s, visibility 0s 0s;transition: opacity .3s 0s, visibility 0s 0s;}
 .no-cssgradients .cd-tabs::after { display: none;}
 .cd-tabs.is-ended::after {visibility: hidden; opacity: 0;  -webkit-transition: opacity .3s 0s, visibility 0s .3s; -moz-transition: opacity .3s 0s, visibility 0s .3s;  transition: opacity .3s 0s, visibility 0s .3s;}
-.cd-tabs nav {overflow: auto; -webkit-overflow-scrolling: touch; background: #f8f7ee; box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06); border-top:1px solid #d3d3d3; border-bottom:1px solid #d3d3d3;}
+.cd-tabs nav {overflow: auto; -webkit-overflow-scrolling: touch; background: #f8f7ee; box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06); border-bottom:1px solid #d3d3d3;}
 .cd-tabs-navigation {width: 360px;}
 .cd-tabs-navigation:after {content: ""; display: table;clear: both;}
 .cd-tabs-navigation li { float: none; display:inline-block; background:url(../images/tab-bg.png) left bottom no-repeat;}
@@ -118,7 +110,7 @@ background-repeat: no-repeat; color:#5e5e5e;  }
 #screenTwo h2 { font-size:1.7em; color:#353535; padding-bottom:20px;font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; }
 #screenTwo input, #screenTwo number[type="text"] {height:auto; border: 1px solid #6e6e6e; border-radius: 3px; color: #333; font-family:"opensans_reg",Arial,Helvetica,sans-serif; font-size:14px; padding:8px 12px;}
 .buttonSectn {margin:20px 0;}
-.buttonSectn a, .buttonSectn input[type="button"] {border-radius: 3px; border:0; cursor:pointer; color:#fff !important; font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; text-transform:uppercase; font-size:1.8em; text-align:center; padding:10px 40px; margin-right:25px; display:block; float:left;}
+.buttonSectn a, .buttonSectn input[type="button"] {border-radius: 3px; border:0; cursor:pointer; color:#fff !important; font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; text-transform:uppercase; font-size:1.8em; text-align:center; padding:10px 40px; margin-right:25px; display:block; float:left; margin-top:0;}
 .buttonSectn a {padding:12px 40px }
 
 .redBt { background:#e90d14;}
@@ -149,6 +141,14 @@ textarea.ipsm10 {border: 1px solid #6e6e6e; border-radius: 3px; color: #333; fon
 #applicationForm #datecorp p span.k-datepicker span.k-picker-wrap, .rptBoxmain p span.k-datepicker span.k-picker-wrap {width: 316px; padding:0;}
 #applicationForm #datecorp p span.k-datepicker span.k-picker-wrap input, .rptBoxmain p span.k-datepicker span.k-picker-wrap input {padding:6px 12px !important;}
 
+#applicationForm #datecorp p span.k-datepicker .k-select, .rptBoxmain p span.k-datepicker .k-select { border:0;width: 36px;padding:0 0 0 173px}
+#applicationForm #datecorp p span.k-datepicker .k-select .k-i-calendar,  .rptBoxmain p span.k-datepicker .k-select  .k-i-calendar {width: 37px;height: 36px;background:url(../images/clndr.png) right center no-repeat; padding:0;}
+
+.rptBox1.second span.k-datepicker{margin-bottom: 15px;margin-right: 26px;}
+/*.rptBox1.second span.k-datepicker .IN1.ipsm3 {width:195px !important; }*/
+
+
+
 /***************screentwo content***********/
 
 /***************screenthree content***********/
@@ -157,10 +157,10 @@ textarea.ipsm10 {border: 1px solid #6e6e6e; border-radius: 3px; color: #333; fon
 #screenthree .rw { padding-bottom:15px; clear:both;}
 #screenthree input[type="text"],  #screenthree input[type="password"]{border:1px solid #6e6e6e; border-radius: 3px; color: #333; font-family:"opensans_reg",Arial,Helvetica,sans-serif; font-size:14px; padding:8px 12px; width:100%;}
 #screenthree select {border: 1px solid #6e6e6e; border-radius: 3px; color: #333;font-family: "opensans_reg",Arial,Helvetica,sans-serif; font-size:14px; padding:8px 12px;width:100%;}
-#screenthree input[type="button"] {border-radius: 3px; border:0; cursor:pointer; color:#fff; font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; text-transform:uppercase; font-size:1.8em; text-align:center; padding:10px 0; margin-right:25px; display:block; width:100%; background:#e90d14;}
+#screenthree a.km-button {border-radius: 3px; border:0; cursor:pointer; color:#fff; font-family:"opensans_smbld",Arial,Helvetica,sans-serif ; text-transform:uppercase; font-size:1.8em; text-align:center; padding:10px 0; margin-right:25px; display:block; width:100%; background:#e90d14;}
 #screenthree a.skip{ color:#004c8f; font-size:1.8em; text-align:center; text-decoration:underline; padding:40px 0 80px;font-family: "opensans_reg",Arial,Helvetica,sans-serif;display: block;}
 .scrnThrbgBox { display:block; text-align:center;}
-.scrnThrbgBox  img { vertical-align:baseline;}
+.scrnThrbgBox  img { vertical-align:baseline; width:100%;}
 /***************screenthree content***********/
 
 /***************Screenfor content**********/
@@ -171,15 +171,17 @@ textarea.ipsm10 {border: 1px solid #6e6e6e; border-radius: 3px; color: #333; fon
 #screenfor .documentListBox ul li { display:block; width:100%; border-bottom:1px solid #d3d3d3; padding-bottom:35px; margin-bottom:35px;}
 #screenfor .documentListBox ul li:last-child { border:0px; margin-bottom:0;}
 #screenfor .documentListBox ul li .docsBluBox { width:21%; float:left; padding:0;}
-#screenfor .documentListBox ul li .docsBluBox span {display:inline-block; background:#004c8f; text-align:center; vertical-align:middle; border-radius:5px; padding:5px 20px;}
+#screenfor .documentListBox ul li .docsBluBox span {display:inline-block; background:#004c8f; text-align:center; vertical-align:middle; border-radius:5px; padding:5px 20px;height: 122px;}
 #screenfor .documentListBox ul li .docsBluBox span img { vertical-align:middle;}
 #screenfor .documentListBox ul li .uplodSecn { width:79%; float:left;font-family:"opensans_smbld",Arial,Helvetica,sans-serif;}
 #screenfor .documentListBox ul li .uplodSecn span {font-size:2.3em; color:#393939; display:block; padding-bottom:20px;line-height: 1.8em;}
-#screenfor .documentListBox ul li .uplodSecn a { border:1px solid #c1c1c1; text-transform:uppercase; color:#787878; font-size:1.2em; padding:10px 15px; border-radius:3px; display:inline-block}
+#screenfor .documentListBox ul li .uplodSecn a { border:1px solid #c1c1c1; text-transform:uppercase; color:#787878; font-size:1.2em; padding:10px 15px; border-radius:3px; display:inline-block; margin:0; }
 #screenfor .documentListBox ul li .uplodSecn a span {font-size:1em; padding:0;line-height: 1em;color:#787878;}
 #screenfor .checkSavePic { width:100%;}
-#screenfor .checkSavePic .uploadPic { width:17%; float:left; margin:0 20px 0 0; background:#004c8f; padding:5px;}
-#screenfor .checkSavePic .uploadPic img { display:block; width:100%;}
+#screenfor .checkSavePic h5 {font-size:1em; color:#333; padding:0 0 5px;}
+
+#screenfor .checkSavePic .uploadPic { width:17%; float:left; margin:0 20px 0 0; background:#004c8f; padding:0px; border:5px solid #004c8f; height:122px; overflow:hidden;}
+#screenfor .checkSavePic .uploadPic img { display:block; width:100%; padding:0; margin:0; border:0;}
 #screenfor .checkSavePic .uploadPic a { border:0 !important; padding:0 !important;display: block !important;}
 .km-state-active {background:#d6e7ff !important;}
 /***************Screenfor content**********/
@@ -194,7 +196,7 @@ textarea.ipsm10 {border: 1px solid #6e6e6e; border-radius: 3px; color: #333; fon
 #Screenfive .cameraIconBox span { color:#353535; font-size:1.7em; display:block;font-family:"opensans_smbld",Arial,Helvetica,sans-serif;}
 #Screenfive .savepicBox { width:100%; padding-bottom:60px;}
 #Screenfive .savepicBox ul { list-style:none; padding:0;}
-#Screenfive .savepicBox ul li { overflow:hidden; float:left; width:25%; position:relative; height:212px;}
+#Screenfive .savepicBox ul li { overflow:hidden; float:left; width:25%; position:relative; height:212px;padding:0; margin:0; border:0;border-radius: 0;}
 #Screenfive .savepicBox ul li:nth-child(1) , #Screenfive .savepicBox ul li:nth-child(2) , #Screenfive .savepicBox ul li:nth-child(3) , #Screenfive .savepicBox ul li:nth-child(4){ border-top:1px solid #ccc;}
 #Screenfive .savepicBox ul li:nth-child(4) span { border-right:1px solid #ccc;}
 #Screenfive .savepicBox ul li span { display:block; font-size:0; line-height:0; border-bottom:1px solid #cccccc; border-left:1px solid #ccc;}
@@ -206,16 +208,18 @@ textarea.ipsm10 {border: 1px solid #6e6e6e; border-radius: 3px; color: #333; fon
 #Screenfive .savepicBox ul li:last-child { border-right:1px solid #ccc;}
 #Screenfive .savepicBox ul li .right img { max-width:inherit; width:100%;}
 #Screenfive .cnclSave { display:block; text-align:center; padding:10px; margin-bottom:50px}
-#Screenfive .cnclSave a { display:inline-block; font-size:1.7em;font-family:"opensans_smbld",Arial,Helvetica,sans-serif; text-transform:uppercase; width:180px;}
+#Screenfive .cnclSave a { margin:0; display:inline-block; font-size:1.7em;font-family:"opensans_smbld",Arial,Helvetica,sans-serif; text-transform:uppercase; width:180px;}
 #Screenfive .cnclSave a.cncl { padding:10px 0; border:1px solid #ccc; border-right:0; color:#6d6d6d;border-radius:5px 0px 0 5px }
 #Screenfive .cnclSave a.save { padding:10px 0; border-right:0; background:#ed232a; color:#fff; border:1px solid #ccc; border-left:0;border-radius:0 5px 5px 0 }
+#Screenfive .cnclSave a.save.km-state-active {background:#af050b !important;}
+#Screenfive .cnclSave a.cncl.km-state-active {background-color:#c4c4c4 !important;}
 /***************Screenfive content**********/
 
 
 
+.k-block, .k-header, .k-grid-header, .k-toolbar, .k-grouping-header, .k-pager-wrap, .k-button, .k-draghandle, .k-treemap-tile, html .km-pane-wrapper .k-header {background-color:transparent !important;}
 
-@media (min-width:0px) and (max-width:1000px) {
-	#Screenfive .savepicBox ul li:nth-child(4) { padding-bottom:1px;}
-}
+
+.addremove{display:none;}
 
 /*******Screen 2 ************/

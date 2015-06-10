@@ -2,7 +2,7 @@
   "ProjectName": "HDFC",
   "ProjectGuid": "6ad49fef-5cfe-4c9c-9707-7c00846bfa4a",
   "projectVersion": 1,
-  "AppIdentifier": "com.sak.hdfc",
+  "AppIdentifier": "io.zaff.app",
   "DisplayName": "HDFC Bank",
   "Author": "",
   "Description": "",

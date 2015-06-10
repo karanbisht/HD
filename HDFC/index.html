@@ -10,19 +10,20 @@
         
         <script src="scripts/app/app.js"></script>
         <script type="text/javascript" src="scripts/app/default.js"></script>
-        <link rel="stylesheet" href="styles/css/style.css">
+        <link href="styles/css/main.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="styles/css/fonts.css">
         <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
         <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
         <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
-        <!--<link href="styles/main.css" rel="stylesheet">-->
+        
     </head>
     <body id="hdfcApp">
         <div data-role="layout" data-id="default">
 
         </div>
 
-        <div data-role="view" id="welcomeToHDFC" data-layout="default" class="welcome-scrn form-view" data-model="app.homepage" data-show="app.homepage.show">
+        <div data-role="view" id="welcomeToHDFC" data-layout="default" class="welcome-scrn form-view" data-model="app.homepage" data-show="app.homepage.show" data-use-native-scrolling="true">
             <div data-role="header"></div>
             <div id="wrapper">
 
@@ -73,6 +74,22 @@
                     <div class="logo"><img src="styles/images/logo.jpg" width="350" height="59" alt="img"></div>
                     <h1>HDFC Small Business loan</h1>
                 </div>
+                
+<div class="cd-tabs">
+                   <nav>
+                       <ul class="cd-tabs-navigation">
+                           <li>
+                               <a href="#dashboard" id="appFormTab" class="appFormTab"  data-content="Application form">Application form </a>
+                           </li>
+                           <li>
+                               <a href="#bankStmView" id="bankStmTab" class="bankStmTab" data-content="Bank statement">Bank statement</a>
+                           </li>
+                           <li>
+                               <a href="#attachDocView" id="attachDocTab" class="attachDocTab" data-content="Attach Document">Attach Document</a>
+                           </li>
+                       </ul> <!-- cd-tabs-navigation -->
+                   </nav>
+               </div>  
             </div>
         </div>
 

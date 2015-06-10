@@ -7,9 +7,50 @@ app.homepage = (function(){
         var customer_ID;
         
         var show = function(){
-            localStorage.setItem("loginStatus", 1);                
-            getIDFmDB();
+            localStorage.setItem("loginStatus", 1);     
+            
+            localStorage.setItem("shareDoc1_ITR", 'styles/images/save-pic.png');
+            localStorage.setItem("shareDoc2_ITR", 'styles/images/save-pic.png');
+                        
+            localStorage.setItem("shareDoc1_BST", 'styles/images/save-pic.png');
+            localStorage.setItem("shareDoc2_BST", 'styles/images/save-pic.png');
+            
+            localStorage.setItem("shareDoc1_PAN", 'styles/images/save-pic.png');
+            localStorage.setItem("shareDoc2_PAN", 'styles/images/save-pic.png');
+                       
+            localStorage.setItem("shareDoc1_PL", 'styles/images/save-pic.png');
+            localStorage.setItem("shareDoc2_PL", 'styles/images/save-pic.png');
+            
+            localStorage.setItem("shareDoc1_AP", 'styles/images/save-pic.png');
+            localStorage.setItem("shareDoc2_AP", 'styles/images/save-pic.png');
+            
+            //getIDFmDB();
+            
+
+            localStorage.setItem("CUSTOMER_ID", 1000000);
+            localStorage.setItem("BUSINESS_ID", 1000000);
+            
+            deleteDB();
         };
+        
+        function deleteDB(){
+            var db = app.getDb();
+            db.transaction(deleteaTableData, app.errorCB,app.successCB);            
+        }
+        
+        function deleteaTableData(tx){
+            var query = "DELETE FROM CUSTOMER_DETAIL";
+        	app.deleteQuery(tx, query);
+
+        	var query1 = "DELETE FROM BUSINESS_DETAIL";
+        	app.deleteQuery(tx, query1);
+
+        	var query2 = "DELETE FROM CUST_ATTACH_DOC";
+	        app.deleteQuery(tx, query2);
+
+        	var query3 = "DELETE FROM LOAN_REQ_DETAIL";
+	        app.deleteQuery(tx, query3);            
+        }
         
         function getIDFmDB(){
              var db = app.getDb();

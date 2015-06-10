@@ -1,0 +1,26 @@
+@media screen and (max-width: 960px){
+.warps {margin: 0 5%;width: 90%;}
+.ipsm3 {}
+}
+@media (min-width:0px) and (max-width:768px) {
+span.selected {width: 85%;}
+span.selectArrow {width: 15%;}   
+.ipsm3 {width: 213px;}
+select.ipsm3 {width: 213px;}
+#applicationForm #datecorp p span.k-datepicker, .rptBoxmain p span.k-datepicker {width: 213px;}
+#applicationForm #datecorp p span.k-datepicker span.k-picker-wrap, .rptBoxmain p span.k-datepicker span.k-picker-wrap {width: 213px;}
+.ipsm4 {width:452px;}
+textarea.ipsm10 {width:691px;}
+select.ipsm4 {width:452px;}
+#screenTwo .rptBox.first .addmore {width: 213px;}
+.scrnThrbgBox  {margin-top:150px;}
+#Screenfive .savepicBox ul li {height: 147px;}
+#Screenfive .savepicBox ul li.active > .right {top: 0px;}
+#screenfor .documentListBox ul li .docsBluBox {width: 18%; padding-right:3%; }
+#screenfor .documentListBox ul li .docsBluBox span img { width:100%;}
+#screenfor .documentListBox ul li .uplodSecn span {padding-bottom: 15px;font-size: 2em;line-height: 1em;}
+#attachUpdateDiv .km-button {padding: 12px 15px !important;}
+#Screenfive .savepicBox ul li .right img {width: 100.2%;}
+#screenfor .documentListBox ul li .docsBluBox span {height: 82px;}
+#screenfor .checkSavePic .uploadPic{height: 82px;overflow: hidden;}
+}
